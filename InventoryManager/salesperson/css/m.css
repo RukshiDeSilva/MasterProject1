@@ -1,0 +1,84 @@
+
+div.ad{
+    float: right;
+    border: solid #545658 2px;
+    padding: 20px 20px 20px 20px;
+    width: 700px;
+    background-color: #E6E6E6;
+    margin-right: 200px;
+    margin-top: 150px;
+}
+h1{
+    font-size: 30px;
+    background-color: #990000;
+    color: #FFFFFF;
+    width:700px;
+    padding: 10px;
+    font-family: Calibri;
+    line-height: 30px;
+    margin:0 0 0;
+    margin-bottom: 20px;
+
+
+}
+table{
+    font-family: Calibri;
+    margin-left: 50px;
+}
+button {
+    background-color:#0B0B61;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    float: right;
+    margin-top: 20px;
+    border-radius: 2px;
+    font-family: Calibri;
+    font-weight: bold;
+}
+button:hover {
+    background-color: #666666;
+    color: white;
+}
+select {
+   background-color: #f9f9f9;
+    height: 20px;
+    width: 100px;
+    font-family: Calibri;
+}
+option{
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+.option:hover .option-content {
+    display: block;
+}
+
+.link {
+    background-color:#0B0B61;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    float: right;
+    margin: 5px;
+    border-radius: 2px;
+    font-family: Calibri;
+    font-weight: bold;
+}
+.link:hover {
+    background-color: #666666;
+    color: white;
+}
+

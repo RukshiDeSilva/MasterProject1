@@ -1,0 +1,17 @@
+drop procedure updateRelease;
+delimiter //
+create procedure updateRelease(IN b_num varchar(10), IN x int, IN y int,IN z int)
+begin
+declare i,j int;
+declare result cursor for select battery_num from released_batteries where batch_num=b_num AND battery_status=0;
+open result;
+fetch next from result into i;
+set j=i+x;
+while i<j do
+update released_batteries set battery_status=1, salesPerson_id = y, dealer_id = z  where battery_num=i;
+set i=i+1;
+end while;
+end//
+delimiter ;
+
+

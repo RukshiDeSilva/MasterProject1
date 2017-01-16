@@ -1,0 +1,179 @@
+ .ad{
+            font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
+            background:#e0e0d1;
+            margin: 0 auto;
+            padding: 0px;
+            width: 130%;
+            color:black;
+            font-size: 18px;
+            line-height: 1em;
+            margin-top:5px;
+            margin-left: -8.5%;
+            height: 700px;
+        }
+.ad td{
+            display: block;
+            margin: 0 0 8px;
+            cursor: pointer;
+
+        }
+
+       
+
+
+
+
+span
+{
+    color:white;
+    margin-top:5px;
+    display:block;
+
+}
+th, td {
+    padding: 7px;
+    text-align: left;
+
+}
+
+
+.ad input,.ad select,.ad option{
+            font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
+            font-size: 14px;
+            border: 0;
+            background:  #fff ;
+            margin: 0 0 20px;
+            padding: 8px 10px;
+            display: block;
+            width: 50% ;
+            color:black;
+            text-align: center;
+            margin-left: 100px;
+
+            
+        }
+
+        body{
+    
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans';
+    margin-bottom: 0;
+    background-color:#B40404;
+
+}
+
+
+nav{
+    background-color:black;
+    margin-top:80px;
+    width: 125px;
+    
+}
+
+
+ul
+{
+    width: 170px;
+    margin-top:0px;
+    padding:0px;
+    list-style-type:none;
+    -webkit-backface-visibility: hidden; backface-visibility: hidden;
+    
+}
+.var_nav
+{
+    position:relative;
+    background:#B40404;
+    width:120px;
+    height:150px;
+    margin-top:0px;
+    margin-right: 0px;
+    margin-bottom:1px;
+
+}
+
+.var_nav:hover {
+    width: 120px;
+    background: black;
+    
+}
+.content{
+
+    padding: 0;
+    margin-left:15%;
+    width:70%;
+    height:700px;
+    margin-top:-550px;
+    margin-right: 10%;
+
+
+
+
+}
+
+div.form{
+    position: absolute;
+}
+table{
+  width:100%;
+  table-layout: fixed;
+
+
+}
+.tbl-header{
+  background-color:#808080;
+  border: 1px solid #c2c2a3;
+  font-color: black;
+  margin-left: 90px;
+  margin-right: 90px;
+ }
+.tbl-content{
+  height:300px;
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 1px solid #c2c2a3;
+  margin-left: 90px;
+  margin-right: 90px;
+
+}
+th{
+  padding: 15px 15px;
+  text-align:center;
+  font-weight: 1000;
+  font-size: 20px;
+  color: black;
+
+}
+
+h1  {
+    font-family:arial;
+    font-size: 35px;
+    
+    text-align: center;
+}
+
+
+
+
+
+
+  
+
+
+
+
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+
+
+
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+
+
+
+
+
+  

@@ -1,0 +1,133 @@
+body{
+    background: url("http://4globetrotters.world/wp-content/uploads/2015/08/Light-Grey-Background.jpg");
+    color:#fff;
+    margin:0;
+}
+#header{
+    height:90px;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    background-color: #B40404;
+    font-family:arial;
+    background: -webkit-linear-gradient(#B40404,#990000);
+    background: -o-linear-gradient(#B40404, #990000);
+    background: -moz-linear-gradient(#B40404, #990000);
+    background: linear-gradient(#B40404,#990000);
+}
+#footer{
+    background:#B40404;
+    background: -webkit-linear-gradient(#B40404,#990000);
+    background: -o-linear-gradient(#B40404, #990000);
+    background: -moz-linear-gradient(#B40404, #990000);
+    background: linear-gradient(#B40404,#990000);
+    position:fixed;
+    bottom:0px;
+    width:100%;
+    height:20px;
+    font-family:arial;
+    text-align: center;
+}
+nav{
+    margin-top:75px;
+}
+h2{
+    margin:inherit;
+    font-family:arial;
+    font-size: medium;
+}
+
+h1  {
+    font-family:arial;
+    font-size: large;
+}
+
+h1 a {
+    margin-top: auto;
+    display : block;
+    height : 100px;
+}
+
+ul
+{
+margin:0px;
+padding:0px;
+list-style-type:none;
+-webkit-backface-visibility: hidden; backface-visibility: hidden;  
+}
+.var_nav
+{
+position:relative;
+background:#ccc;
+width:120px;
+height:100px;
+margin-bottom:1px;
+}
+
+.link_bg i
+{
+ position:relative;
+}
+.link_title
+{
+    margin-top: 0px;
+position:absolute;
+width:100%;
+z-index:3;
+color:#fff;
+}
+.link_title:hover .icon
+{
+    top: 60px;
+-webkit-transform:rotate(360deg);
+-moz-transform:rotate(360deg);
+-o-transform:rotate(360deg);
+-ms-transform:rotate(360deg);
+transform:rotate(360deg);  
+}
+.var_nav:hover {
+    width: 120px;
+    background: #B40404;
+}
+.var_nav:hover a
+{
+    color: #f9f9f9;
+font-weight:bold;
+-webkit-transition:all .5s ease-in-out;
+-moz-transition:all .5s ease-in-out; 
+-o-transition:all .5s ease-in-out; 
+-ms-transition:all .5s ease-in-out;
+ transition:all .5s ease-in-out;  
+}
+.icon
+{
+position:relative;
+width:70px;
+height:70px;
+text-align:center;
+color:#fff;
+-webkit-transition:all .5s ease-in-out;
+-moz-transition:all .5s ease-in-out; 
+-o-transition:all .5s ease-in-out; 
+-ms-transition:all .5s ease-in-out;   
+float:left;
+transition:all .5s ease-in-out;   
+float:left;  
+}
+.icon i{top:22px;position:relative;}
+a{top: 10px;
+display:block;
+position:absolute;
+float:left;
+font-family:arial;
+color:#1C1C1C;
+text-decoration:none;
+width:100%;
+height:70px;
+text-align:center;
+}
+span
+{
+margin-top:5px;
+display:block;
+}

@@ -1,0 +1,98 @@
+body{
+min-width:100%;
+min-height: 100%;
+margin-left:auto;
+    margin-right:auto;
+    width:960px
+}
+
+
+.form{
+    background-color: #D6EAF8 ;
+    margin: 20px 0 0 0;
+}
+
+
+button {
+    background-color: #104e8b;
+    border: none;
+    color: white;
+    padding: 15px 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    
+}
+input {
+    width: 100%
+}
+input, textarea,select {
+    background: #F2EFED;
+    font-size: 14px;
+    border: 1px solid #555;
+    font: 14px/24px Tahoma, Geneva, sans-serif;
+    color: #554;
+    background-position: 10px 10px;
+    padding-left: 10px;
+}
+.address {
+    height: 70px;
+}
+td {
+
+    font: 14px/24px Tahoma, Geneva, sans-serif;
+}
+div {
+    font: 14px/24px Tahoma, Geneva, sans-serif;
+    font-weight: bold;
+    padding:20px 5px 1px 20px;
+}
+
+
+button:hover {
+    background-color: #469ef0;
+    color: white;
+}
+
+
+ #add-form {
+    width: 600px;
+   
+    
+    padding: ;
+    border: 5px  ;
+    height:660;
+    position: relative;
+    float: center;
+  
+    }
+
+@media screen and (max-width: 800px){
+    #add-form {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #f2f2f2;
+    padding: 40px;
+    border: 10px solid #c1c1c1;
+    height:auto;
+
+    }
+}
+#header {
+    margin: 0 0 30px 0;
+    border-bottom: 1px solid #efefef;
+}
+
+#wrap{
+min-width: 300px;
+
+.table-layout: 
+{
+    border-collapse:separate; 
+    border-spacing:5em;
+}

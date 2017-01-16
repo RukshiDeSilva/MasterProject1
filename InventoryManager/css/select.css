@@ -1,0 +1,110 @@
+
+.main-content{
+    width: 50%;
+    height: 100%;
+    float: left;
+    background: #990000;
+    background: -webkit-linear-gradiant(left top, #990000,#E74C3C); /*for safari 5.1 to 6.0*/
+    background: -o-linear-gradiant(bottom right,#990000,#E74C3C); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right,#990000,#E74C3C); /* Standard syntax (must be last) */
+}
+.aside{
+    width: 50%;
+    height:100%;
+    margin-left:200px;
+    margin-top: -220px;
+}
+.wrapper, html, body{
+    height: 100%;
+    background: #E6E6E6;
+    background: -webkit-linear-gradiant(left top, #424949,#CCD1D1); /*for safari 5.1 to 6.0*/
+    background: -o-linear-gradiant(bottom right,#424949,#CCD1D1); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right,#424949,#CCD1D1); /* Standard syntax (must be last) */
+    /*opacity: 0.9;*/
+    overflow: hidden;
+
+
+}
+body {
+    text-align:center;
+    font-family:helvetica;
+    font-size: 16px;
+    background-image: url("../img/bbb.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+a {
+    color: #f0f0f0;
+    text-decoration: none;
+}
+.container {
+    display: inline-block;
+    margin: 0 auto;
+    width: 400px;
+    margin-right: -1600px;
+    margin-top: 195px;
+
+}
+/* ANIMATIONS */
+.Object, .ObjectContainer a {
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+.ObjectContainer {
+    width: 200px;
+    height: 200px;
+    float: left;
+    display: block;
+    position: relative;
+    overflow:hidden;
+}
+.ObjectContainer .Object {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.ObjectContainer a {
+    position: absolute;
+    bottom: -200px;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    line-height: 0px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.ObjectContainer:hover .Object {
+    margin: 2.5%;
+    height: 95%;
+    width: 95%;
+    border-radius: 100px;
+}
+.ObjectContainer:hover a {
+    opacity: 1;
+    bottom: 0;
+    line-height: 200px;
+}
+#red.Object {
+    background: #e7222f;
+}
+
+#Grey.Object {
+    background: #6f6f6e;
+}
+a{
+    margin-right: 200px;
+}
+.pic{
+    margin-top: 20px;
+    width: 150px;
+}
+span{
+    font-weight: bold;
+    font-family: Calibri;
+   font-size: xx-large;
+    float: right;
+}
