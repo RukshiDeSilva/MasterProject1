@@ -58,17 +58,7 @@ include '../include/header.php'
         <div id="stock">
             <table cellpadding="0" cellspacing="0" border="0">
                 <?php
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "warranty_management";
-
-                // Create connection
-                $conn = mysqli_connect($servername, $username, $password, $dbname);
-                // Check connection
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
+                include '../../database/connect.php';
                 $sql = "SELECT battery_type,battery_name,current_stock FROM stock_in_hand";
                 $result = $conn->query($sql);
 
@@ -134,7 +124,8 @@ include '../include/header.php'
                     while($row = $result->fetch_assoc()) {
                         echo "    <tbody>
         <tr>
-        <td>".$row["battery_type"]."</td><td>".$row["battery_name"]."</td>
+        <td>".$row["battery_type"]."</td>
+        <td>".$row["battery_name"]."</td>
         <td>".$row["current_stock"]."</td>
         </tr>"; }
                     echo "
