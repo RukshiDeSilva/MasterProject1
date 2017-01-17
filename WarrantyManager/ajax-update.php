@@ -28,7 +28,11 @@ if (count($_POST))
 	// Perform MySQL UPDATE
 	$result = mysqli_query($conn,"UPDATE released_batteries SET ".$col."='".$val."'
 		WHERE ".$w_col1."='".$w_val1."' AND ".$w_col2."='".$w_val2."' ")
+
 		or die ('Unable to update row.');
-}
+		echo "Replacemnt date for ".$w_val1.$w_val2." was updated to ".$val;
+}else{
+		echo "No rows were updated";
+	}
 
 ?>

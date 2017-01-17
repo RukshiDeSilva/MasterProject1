@@ -1,8 +1,8 @@
 <?php
 
-/*
- * DATABASE CONNECTION
- */
+
+//DATABASE CONNECTION
+ 
 require "../core/database/connect.php";
 
 
@@ -13,9 +13,6 @@ function clean($value)
 	return mysqli_real_escape_string($conn,$value);
 }
 
-/*
- * FORM PARSING
- */
 // FORM: Variables were posted
 if (count($_POST))
 {

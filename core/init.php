@@ -17,7 +17,7 @@ if (logged_in()===true) {
    
 }
 else {
-	echo "not sucess" ;
+	echo "Login Failed" ;
 }
 
 ?>

@@ -18,11 +18,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="js/jquery-editable-select.js"></script>
 
-        <style>
-
-
-       
-		</style>
 
 
 <script>
@@ -41,12 +36,14 @@
 				return;
 		
 			var form = input.parents('form');
-
+			
+			//split the id of the select and take 2nd element as the id now ex:dt_batch_num|battery_num
 			id = id.split('_')[1];
 			
 			if ( id == "" )
 				return;
 			
+			//now split the id from '|'
 			var vals = id.split("|");
 			var batch = vals[0];
 			var num = vals[1];
@@ -98,87 +95,89 @@
 	});
 </script>
 </head>
+
 <?php
 include '../InventoryManager/include/header.php';
 ?>
-    <body>
-<div id="body">
-    <div id="navigation"></div>
-    <nav>
-        <ul id="mainsidebar">
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" id="dt">
 
-                    <a href="#" class="side_a"><img class= "pic" src="img/b.png" align="middle" width="80px"><span>Enter Defects</span></a>
-                </div>
-            </li>
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" >
+<body>
+	<div id="body">
+		<div id="navigation"></div>
+		<nav>
+			<ul id="mainsidebar">
+				<li class="var_nav">
+					<div class="link_bg"></div>
+					<div class="link_title" id="dt">
 
-                    <a href= "checkReplace.php" class="side_a"><img class= "pic" src="img/c.png" align="middle" width="80px"><span>Check Replacements</span></a>
-                </div>
-            </li>
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" id="md" >
+						<a href="#" class="side_a"><img class= "pic" src="img/b.png" align="middle" width="80px"><span>Enter Defects</span></a>
+					</div>
+				</li>
+				<li class="var_nav">
+					<div class="link_bg"></div>
+					<div class="link_title" >
 
-                    <a href="misDealer.php" class="side_a"><img class= "pic" src="img/d.png" align="middle" width="80px"><span>Misused Dealers</span></a>
-                </div>
-            </li>
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" >
+						<a href= "checkReplace.php" class="side_a"><img class= "pic" src="img/c.png" align="middle" width="80px"><span>Check Replacements</span></a>
+					</div>
+				</li>
+				<li class="var_nav">
+					<div class="link_bg"></div>
+					<div class="link_title" id="md" >
 
-                    <a href= "viewAllReplace.php" class="side_a"><img class= "pic" src="img/f.png" align="middle" width="80px"><span>View All Replacements</span></a>
-                </div>
-            </li>
-             <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" >
+						<a href="misDealer.php" class="side_a"><img class= "pic" src="img/d.png" align="middle" width="80px"><span>Misused Dealers</span></a>
+					</div>
+				</li>
+				<li class="var_nav">
+					<div class="link_bg"></div>
+					<div class="link_title" >
 
-                    <a href= "searchProduct.php" class="side_a"><img class= "pic" src="img/g.png" align="middle" width="80px"><span>Search Product</span></a>
-                </div>
-            </li>
-    </nav>
-</div>
+						<a href= "viewAllReplace.php" class="side_a"><img class= "pic" src="img/f.png" align="middle" width="80px"><span>View All Replacements</span></a>
+					</div>
+				</li>
+				 <li class="var_nav">
+					<div class="link_bg"></div>
+					<div class="link_title" >
 
-    <div class="content">
+						<a href= "searchProduct.php" class="side_a"><img class= "pic" src="img/g.png" align="middle" width="80px"><span>Search Product</span></a>
+					</div>
+				</li>
+		</nav>
+	</div>
 
-        <div class="table">
-            <div id="content">
-            <form action="#" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
-                    <div class="ad">
+		<div class="content">
 
-                     <h1><b>Enter Defect Types</b></h1>
+			<div class="table">
+				<div id="content">
+				<form action="#" method="POST" enctype="multipart/form-data" name="Form">
+						<div class="ad">
 
-                    <table width="70%">
-                      <tr>
-    
-    
-                        <th>From : </th>
-                      	<th>To : </th>
-                        <th></th>
-                        <th></th>
-                        </tr>
-                        <tr></tr>
-                      <tr>
-                          <form>
-                            <div class="form-group input-group">
-								<th><input name="date_1" type="date"  size="9" value=""/></th>
-								<th> <input name="date_2" type="date"  size="9" value=""/></th>
-                            </div>
-								<th><button style="margin-top:-2% " type="submit" name="submit" value="submit">Search</button> </th>
-								<th><a href = "enterDefectType.php"><img src="img/defect.png" width="200px" height= "50px"></a></th>
-					       </form>
-                      </tr>
+						 <h1><b>Enter Defect Types</b></h1>
 
-
-
+						<table width="70%">
+						  <tr>
+		
+		
+							<th>From : </th>
+							<th>To : </th>
+							<th></th>
+							<th></th>
+							</tr>
+							<tr></tr>
+						  <tr>
+							  <form>
+								<div class="form-group input-group">
+									<th><input name="date_1" type="date"  size="9" value=""/></th>
+									<th> <input name="date_2" type="date"  size="9" value=""/></th>
+								</div>
+									<th><button style="margin-top:-2% " type="submit" name="submit" value="submit">Search</button> </th>
+									<th><a href = "enterDefectType.php"><img src="img/defect.png" width="200px" height= "50px"></a></th>
+							   </form>
+						  </tr>
 
 
-				</table>
+
+
+
+					</table>
 <?php
 
 require "../core/database/connect.php";
@@ -191,7 +190,7 @@ if (isset($_POST['submit'])) {
 	$First_Date = date('Y-m-d',$from_date);
 	$Next_Date =  date('Y-m-d',$to_date);
 	
-
+	//select the details of batteries within the two dates and where status 3
 	$sql="SELECT battery_status,replaced_date,batch_num,battery_num,defect_type FROM released_batteries WHERE battery_status = '3' AND replaced_date BETWEEN '" . $First_Date . "' AND  '" . $Next_Date . "' ";
 
 
@@ -225,8 +224,10 @@ if (isset($_POST['submit'])) {
 
 			?>
 			<td>
-			
+			<!--assign form an id using batch num and battery num -->
 			<form id='form_<?php echo $id; ?>' class='autosubmit' method='POST' action='ajax-update1.php'>
+			
+			<!-- assign select an id and a class -->
 				<select id ="dt_<?php echo $id; ?>" name='defect_type' class="AutoSubmitCombo">
 				<option value = ''>--SELECT--</option>
 				
@@ -235,6 +236,8 @@ if (isset($_POST['submit'])) {
 				$query= "SELECT defect FROM defect_types ";
 				$db = mysqli_query($conn, $query);
 				while ( $d=mysqli_fetch_assoc($db)) {
+					
+					//if defect type we selected equal to the defect type fetched to the dropdown it will be selected else empty string will replace
 					echo "<option value='".$d['defect']."' ". ( $d['defect'] == $row1["defect_type"]  ? "selected='selected'" : "" )." >".$d['defect']."</option>";
 				}   
 				?>
@@ -243,7 +246,7 @@ if (isset($_POST['submit'])) {
 		}
 		echo "</table>";
 	} else {
-		echo "0 results";
+		echo "No results to display";
 	}
 	echo"</form>";
 }
@@ -266,8 +269,8 @@ mysqli_close($conn);
 </div>
 </div>
 
-<div>
-</body>
+		<div>
+	</body>
 </html>
 
 

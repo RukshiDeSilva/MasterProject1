@@ -187,7 +187,7 @@ require "../core/database/connect.php";
 if (isset($_POST['submit'])) {
      
 		$from_date = strtotime($_POST['date_1']);
-		$to_date = strtotime('-30 day',$from_date);
+		$to_date = strtotime($_POST['date_2']);
 
 		
 
@@ -224,6 +224,7 @@ if ($result->num_rows > 0) {
 		$replaced_date = $row["replaced_date"];
 		$cus_sold_date = $row["cus_sold_date"];
 		
+		//check the battery status and decide on validity of the replacement
 			if ($battery_status ==  '5' ){		
 			$battery_status = "VALID";
 			$warranty_status = "Expired";
@@ -231,7 +232,9 @@ if ($result->num_rows > 0) {
 		elseif ($battery_status == '6' ){
 			$battery_status = "INVALID";
 			$warranty_status = "Expired";
-		}	
+		}
+		
+		//if warranty is not expired calculate remaining warranty period
 			elseif ($battery_status == '3' ){
 			$battery_status = "PENDING";
 	
@@ -241,7 +244,7 @@ if ($result->num_rows > 0) {
 			$months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
 			$days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
 
-			$warranty_status =  $years.$months.$days;
+			$warranty_status =  "Years:".$years." "."Months:".$months." "."Days:".$days;
 			
 		}
 			elseif ($battery_status == '4' ){
@@ -253,7 +256,7 @@ if ($result->num_rows > 0) {
 			$months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
 			$days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
 
-			$warranty_status =  $years.$months.$days;
+			$warranty_status =  "Years:".$years." "."Months:".$months." "."Days:".$days;
 		}
 		
 		$sql5 = "SELECT dealer_name FROM dealer WHERE dealer_id = '$row[dealer_id]'";
@@ -294,11 +297,8 @@ if ($result->num_rows > 0) {
 		
               
                 <h4>Additional information</h4>
-                <ul>
-                    <li>Dealer Name : <?php echo $res5['dealer_name']; ?></li>
-                    <li>Remaining Warranty Period : <?php echo $warranty_status ?></li>
-                    <li></li>
-                 </ul>   
+                    <p>Dealer Name : <?php echo $res5['dealer_name']; ?><br/><br/>
+                    Remaining Warranty Period : <?php echo $warranty_status ?></p> 
             </td>
         </tr>
 	 

@@ -9,7 +9,8 @@
        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script type="text/javascript">
+		
+    <script type="text/javascript">
 	
 		$(function(){
 			$(".autosubmit").change(function(){
@@ -223,7 +224,7 @@
 	<div class="content">
 		<div class="table">
 			<div id="content">
-				<form action="#" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
+				<form action="#" method="POST" enctype="multipart/form-data" name="Form">
 					<div class="ad">
 						<br/>
 						<h1><b>Replacement Inspection</b></h1>
@@ -262,9 +263,7 @@
 							</tr>
 
 					</table>
-					<?php
-					include '../InventoryManager/include/footer.php';
-					?>
+					
 				<!--/form-->
 				</form>
    
@@ -395,7 +394,7 @@ function check_defect ($conn, $data) {
 
 		$defect =  $data["defect_type"];
 		if (isset($defect)) {
-			if ($defect != "{NONE}"){
+			if ($defect != "NONE"){
 		   return "Defected";
 		   
 		} else {

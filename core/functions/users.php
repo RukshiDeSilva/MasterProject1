@@ -77,26 +77,8 @@ function role_from_username($username,$password){
 }
 
 
-  function output_errors($errors) {
-    return '<ul><li>'. implode('</li><li>',$errors) . '</li></ul>';
-}
 
 
-/*function restrict_pages ($role){
-	if (isset($role) {
-      if ($role == 'admin') {
-          if (!session_id())
-              session_start();
-          $_SESSION['logon'] = true;
 
-          header('Location: .php');
-          die();
-      }
-	
-	
-	
-}
 
-}
-*/
  ?>

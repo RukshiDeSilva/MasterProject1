@@ -1,8 +1,7 @@
 <?php
 
-/*
- * DATABASE CONNECTION
- */
+//DATABASE CONNECTION
+
 require "../core/database/connect.php";
 
 
@@ -12,10 +11,6 @@ function clean($value)
 	$conn= mysqli_connect('localhost','root','','warranty_management');
 	return mysqli_real_escape_string($conn,$value);
 }
-
-/*
- * FORM PARSING
- */
 
 // FORM: Variables were posted
 if (isset($_POST))
