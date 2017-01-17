@@ -58,57 +58,7 @@
 </head>
 
 
-<?php
 
-include '../../core/init.php';
-
-
-if (isset($_POST['send'])) {
-$username = $_POST['username'];
-$user_id= user_id_from_username($username);
-
-$sql = "SELECT password FROM users WHERE user_id = $user_id";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-	while($row = $result->fetch_assoc() ){
-$current_password = $row['password'];
- 
-
-  if (md5($_POST['current_password']) === $current_password) {
-
-     if (trim($_POST['password']) != trim($_POST['password_again']) ) { ?>
-     <script language='javascript'>
-                alert("Passwords you entered do not match ! Please try again...") ;
-            </script>
-     <? }
-	else {
-		 $user_id=user_id_from_username($username);
-  $password = $_POST['password'];	 
-  $password=md5($password);
-  $conn= mysqli_connect('localhost','root','','warranty_management');
-  mysqli_query($conn,"UPDATE users SET password = '$password' WHERE user_id = $user_id");?>
-		<script language='javascript'>
-                alert("Password Updated Successfully") ;
-            </script>
-		
-	<?php }
-  header('Location:http://localhost/MasterProject/login.php');
-  } else {?>
-    <script language='javascript'>
-                alert("Your Current Password is incorrect !") ;
-            </script>
- <?php }
-	
-	
-}	
-}
-}
-
-
-
-
-
-?>
 <body>
 
     <div class="wrapper">
@@ -116,7 +66,7 @@ $current_password = $row['password'];
      
             <h2 style="font-size: xx-large">Change Password</h2>
 
-            <form class="form" action="" method="post">
+            <form class="form" action="recovery.php" method="post">
 				<input type="text" name="username" placeholder="Username" />
 				<input type="password" name="current_password" placeholder="Current Password" />
                 <input type="password" name="password" placeholder="New Password" />
@@ -140,7 +90,61 @@ $current_password = $row['password'];
         </ul>
 
     </div>
+<?php
 
+include '../../core/init.php';
+
+
+if (isset($_POST['send'])) {
+	
+$username = $_POST['username'];
+$user_id= user_id_from_username($username);
+
+$sql = "SELECT password FROM users WHERE user_id = '$user_id'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+	while($row = $result->fetch_assoc() ){
+		
+$current_password = $row['password'];
+ 
+//check current password is correct
+  if (md5($_POST['current_password']) === $current_password) {
+
+  //check new passwords entered match
+     if (trim($_POST['password']) != trim($_POST['password_again']) ) { ?>
+     <script language='javascript'>
+                alert("Passwords you entered do not match ! Please try again...") ;
+            </script>
+     <?php }
+	else {
+		
+  $user_id=user_id_from_username($username);
+  $password = $_POST['password'];	 
+  $password=md5($password);
+  $conn= mysqli_connect('localhost','root','','warranty_management');
+  mysqli_query($conn,"UPDATE users SET password = '$password' WHERE user_id = '$user_id'");?>
+		<script language='javascript'>
+                alert("Password Updated Successfully") ;
+            </script>
+		
+	<?php }
+  header('Location:http://localhost/MasterProject1/login.php');
+  } else {?>
+    <script language='javascript'>
+                alert("Your Current Password is incorrect !") ;
+            </script>
+ <?php }
+	
+	
+}	
+}
+}
+
+
+
+
+
+?>
 
 </body>
 
