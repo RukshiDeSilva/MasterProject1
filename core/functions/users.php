@@ -1,33 +1,5 @@
 <?php
 
-
-function user_data($user_id) {
-    $data= array();
-    $user_id=(int)$user_id;
-
-    $func_num_args=func_num_args();
-	
-	//Returns an array of argument list
-    $func_get_args=func_get_args();
-
-
-    if ($func_num_args > 1) {
-        unset($func_get_args[0]);
-	
-	// Join array elements with `
-        $fields='`' . implode('`, `',$func_get_args) . '`';
-		//echo $fields;
-
-        $conn= mysqli_connect('localhost','root','','warranty_management');
-        $query=mysqli_query($conn,"SELECT $fields FROM users WHERE user_id=$user_id");
-        $data=mysqli_fetch_assoc($query);
-        return $data;
-       die();
-
-    }
-
-}
-
 //check whether logged in
 function logged_in() {
 
@@ -35,7 +7,7 @@ function logged_in() {
 }
 
 
-//fetch id from username
+//fetch user id from username
 function user_id_from_username($username) {
     $conn= mysqli_connect('localhost','root','','warranty_management');
     $username=sanitize($username);
@@ -64,7 +36,34 @@ function login($username,$password) {
 }
 
 
+//this function fetch the data relate to an user id
+function user_data($user_id) {
+	
+    $data= array();
+    $user_id=(int)$user_id;
 
+    $func_num_args=func_num_args();
+	
+	//Returns an array of argument list
+    $func_get_args=func_get_args();
+
+
+    if ($func_num_args > 1) {
+        unset($func_get_args[0]);
+	
+	// Join array elements with `
+        $fields='`' . implode('`, `',$func_get_args) . '`';
+		//echo $fields;
+
+        $conn= mysqli_connect('localhost','root','','warranty_management');
+        $query=mysqli_query($conn,"SELECT $fields FROM users WHERE user_id=$user_id");
+        $data=mysqli_fetch_assoc($query);
+        return $data;
+       die();
+
+    }
+
+}
 
 
 

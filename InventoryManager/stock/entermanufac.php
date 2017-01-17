@@ -123,8 +123,13 @@ if (isset($_POST["submit"]))
 	$str =$_POST['batch_num1'].$_POST['batch_num2'].$_POST['batch_num3'].$_POST['batch_num4'];
 	$str = mysqli_real_escape_string($conn,$str);
 
+//$arr1 represent the batch number
 	$arr1 = substr($str, 0,4);
+
+//$arr2 represent the remaining 6 digits which is the battery number
 	$arr2 = substr($str, 4);
+
+//split the string $arr1 to an array $arr3
 	$arr3 = str_split($arr1);
 
 	$serial_no		= '$arr1';
@@ -239,6 +244,7 @@ if (isset($_POST["submit"]))
 	$query =mysqli_query($conn,"SELECT battery_type FROM stock_in_hand WHERE battery_name='$battery_name' ");
 	$rows=mysqli_num_rows($query);
 
+	//if already in the stock add to existing stock
 	if ($rows == 1) {
 
 		$query="UPDATE stock_in_hand SET current_stock=current_stock +'$amount' WHERE battery_type='$battery_type' AND battery_name ='$battery_name' ";

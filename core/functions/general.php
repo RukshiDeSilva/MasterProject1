@@ -1,5 +1,6 @@
  <?php
 
+ //if not logged in redirect to the ptotected page
  function protect_page() {
   if (logged_in() === false) {
     header('Location:protected.php');

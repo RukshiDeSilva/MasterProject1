@@ -122,13 +122,18 @@ $current_password = $row['password'];
   $password = $_POST['password'];	 
   $password=md5($password);
   $conn= mysqli_connect('localhost','root','','warranty_management');
-  mysqli_query($conn,"UPDATE users SET password = '$password' WHERE user_id = '$user_id'");?>
-		<script language='javascript'>
-                alert("Password Updated Successfully") ;
-            </script>
+  $sql = mysqli_query($conn,"UPDATE users SET password = '$password' WHERE user_id = '$user_id'");
+  if (mysqli_query($conn, $sql)) {
+  echo "<script>
+                alert('Password Updated Successfully') ;
+            </script>";
+  }
+  ?>
+	
 		
 	<?php }
   header('Location:http://localhost/MasterProject1/login.php');
+  
   } else {?>
     <script language='javascript'>
                 alert("Your Current Password is incorrect !") ;
