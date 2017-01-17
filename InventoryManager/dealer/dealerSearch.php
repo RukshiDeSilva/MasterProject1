@@ -12,7 +12,7 @@ $role= $user_data['role'];
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/IM.css" type="text/css"/>
-	<script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+	<script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxarea_noVzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
 </head>
 <script>
 	function validate(){
@@ -142,77 +142,78 @@ $role= $user_data['role'];
 		<?php
 		require "../../database/connect.php";
 		/*session_start();*/
-		$v1 = $_SESSION['dealer_name'];
+
+		/*getting particular dealer name from view.php to view deatails*/
+		$dealer_name = $_SESSION['dealer_name'];
 		$error=FALSE;
 
-		$dealer_iderr = "";
-		$v0=$v2=$v3=$v4=$v5=$v6=$v7=$v8=$v9=$zero="";
+		
+		
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$dealer_name = $_POST['dealer_name'];
 		}
-		/*if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			if(empty($_POST['dealer_id'])){
-                $dealer_iderr = "";
-                $error = TRUE;
-			}else{
-				$dealer_id = $_POST['dealer_id'];
+		
+		if ($error==FALSE){
+
+			/*fetch data from dealer table*/
+			$sql = "SELECT * FROM dealer WHERE dealer_name = '$dealer_name'";
+
+			$result= mysqli_query($connection, $sql);
+			if(mysqli_num_rows($result) > 0){
+				while($row = mysqli_fetch_assoc($result)){
+					
+					$dealer_id=$row["dealer_id"];
+					$dealer_name=$row["dealer_name"];
+					$_SESSION['dealer_name']=$dealer_name;
+					$nic=$row["NIC"];
+					$area_no=$row["area_no"];
+					$address=$row["address"];
+					$salesperson_id=$row["salesPerson_id"];
+					$mobile_no=$row["mobileNo"];
+					$telephone_no=$row["telephoneNo"];
+					$email=$row["email"];
+					$fax=$row["fax"];
 				}
-			if ($error==FALSE){*/
-		$sql = "SELECT * FROM dealer WHERE dealer_name = '$v1'";
-
-		$result= mysqli_query($connection, $sql);
-		if(mysqli_num_rows($result) > 0){
-			while($row = mysqli_fetch_assoc($result)){
-				/*	echo "id: ".$row["dealer_id"]. "Name: ".$row["dealer_name"]. "NIC: ".$row["NIC"]."<br/>";*/
-				$v0=$row["dealer_id"];
-				$v1=$row["dealer_name"];
-				$_SESSION['dealer_name']=$v1;
-				$v2=$row["NIC"];
-				$v3=$row["area_no"];
-				$v4=$row["address"];
-				$v5=$row["salesPerson_id"];
-				$v6=$row["mobileNo"];
-				$v7=$row["telephoneNo"];
-				$v8=$row["email"];
-				$v9=$row["fax"];
+			}else{
+				echo "<script>alert('No result found'); window.location.href='view.php'; </script>";
 			}
-		}else{
-			echo "<script>alert('No result found'); window.location.href='view.php'; </script>";
-		}
 
-		$sql1 = "SELECT * FROM area WHERE area_no = $v3";
+			/*selecting area for particular area no*/
+			$sql1 = "SELECT * FROM area WHERE area_no = $area_no";
 
-		$result1= mysqli_query($connection, $sql1);
+			$result1= mysqli_query($connection, $sql1);
 
-		if(mysqli_num_rows($result1) > 0){
+			if(mysqli_num_rows($result1) > 0){
 
-			while($row = mysqli_fetch_assoc($result1)){
-				/*	echo "id: ".$row["dealer_id"]. "Name: ".$row["dealer_name"]. "NIC: ".$row["NIC"]."<br/>";*/
-				$v10=$row["area"];
+				while($row = mysqli_fetch_assoc($result1)){
+					
+					$area=$row["area"];
 
+				}
+			}else{
+				echo '<script>';
+				echo 'alert("area_result")';
+				echo '</script>';
 			}
-		}else{
-			echo '<script>';
-			echo 'alert("area_result")';
-			echo '</script>';
-		}
 
-		$sql2 = "SELECT * FROM sales_person WHERE salesPerson_id = $v5";
+			/*selecting salesperson f_name,last_name for particular salesperson id*/
+			$sql2 = "SELECT * FROM sales_person WHERE salesPerson_id = $salesperson_id";
 
-		$result2= mysqli_query($connection, $sql2);
+			$result2= mysqli_query($connection, $sql2);
 
-		if(mysqli_num_rows($result2) > 0){
+			if(mysqli_num_rows($result2) > 0){
 
-			while($row = mysqli_fetch_assoc($result2)){
-				/*	echo "id: ".$row["dealer_id"]. "Name: ".$row["dealer_name"]. "NIC: ".$row["NIC"]."<br/>";*/
-				$v11=$row["F_name"];
-				$v12=$row["L_name"];
+				while($row = mysqli_fetch_assoc($result2)){
+					
+					$f_name=$row["F_name"];
+					$l_name=$row["L_name"];
 
+				}
+			}else{
+				echo '<script>';
+				echo 'alert("Sales Person result")';
+				echo '</script>';
 			}
-		}else{
-			echo '<script>';
-			echo 'alert("Sales Person result")';
-			echo '</script>';
 		}
 		?>
 		<div class="AddPro">
@@ -221,52 +222,52 @@ $role= $user_data['role'];
 					<table id="ad">
 					<tr>
 						<td><b>Dealer ID : </b></td>
-						<td> <?php echo $v0;?><br/></td>
+						<td> <?php echo $dealer_id;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>Name : </b></td>
-						<td> <?php echo $v1;?><br/></td>
+						<td> <?php echo $dealer_name;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>NIC: </b></td>
-						<td> <?php echo $v2;?><br/></td>
+						<td> <?php echo $nic;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>Area: </b></td>
-						<td> <?php echo $v10;?><br/></td>
+						<td> <?php echo $area;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>Address : </b></td>
-						<td><?php echo $v4;?><br/></td>
+						<td><?php echo $address;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>Relevant Salesperson Name: </b></td>
-						<td><?php echo $v11 ." ". $v12;?><br/></td>
+						<td><?php echo $f_name ." ". $l_name;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>Mobile No : </b></td>
-						<td> <?php echo $v6;?><br/></td>
+						<td> <?php echo $mobile_no;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>Telephone No : </b></td>
-						<td> <?php echo $v7;?><br/></td>
+						<td> <?php echo $telephone_no;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>Email : </b></td>
-						<td><?php echo $v8;?><br/></td>
+						<td><?php echo $email;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>Fax : </b></td>
-						<td><?php echo $v9;?><br/></td>
+						<td><?php echo $fax;?><br/></td>
 					</tr>
 					<tr>
 						<td></td>

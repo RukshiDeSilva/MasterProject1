@@ -5,6 +5,8 @@ require '../../database/connect.php';
 
     if (isset($_GET['data1'])) {
 
+        /*data1 is salesperson id which was selected in salesperson dropdown*/
+
         $id = $_GET['data1'];
         $sql = "SELECT * FROM dealer WHERE salesPerson_id = $id and active=1";
 

@@ -57,7 +57,6 @@ function run()
     
     margins = {
         top: 40,
-        //yata idan tynna ona ida tika
         bottom: 20,
         left: 40,
         right: 40,
@@ -160,67 +159,69 @@ pdf.fromHTML(
 
                               
 <?php
-echo'<table class="table table-striped table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>DealerName</th>
-                                    <th>Exide</th>
-                                    <th>Lucas</th>
-                                    <th>Deganite</th>
-                                    
-                                </tr>
-                            </thead>';   
+  echo'<table class="table table-striped table-bordered table-hover">
+      <thead>
+          <tr>
+            <th>DealerName</th>
+            <th>Exide</th>
+            <th>Lucas</th>
+            <th>Deganite</th>
+                                      
+          </tr>
+      </thead>';  
 
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-              if(empty($_POST['area'])){ 
-                        $area_noerr = "";
-                        $error = TRUE;
-                    }else{
-                        $area_no = $_POST['area'];
-                        echo "<b>".$area_no."</b>";
-                        echo "</br>";
-                        $sql2 = "Select DISTINCT area_no,area from area = $area_no";
-                        $result2= mysqli_query($connection, $sql2);
-                        if (mysqli_query($connection, $sql2)){
-                            while($row = mysqli_fetch_assoc($result2)){
-                                if($area_no==$row['area']){
-                                $a_no=$row['area_no'];
-                              }
-                          }
-                        } 
-                    }
+  if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    
+      /*fetching areas for area dropdown*/
+      $area_no = $_POST['area'];
+      echo "<b>".$area_no."</b>";
+      echo "</br>";
+      $sql2 = "Select DISTINCT area_no,area from area = $area_no";
+      $result2= mysqli_query($connection, $sql2);
+      if (mysqli_query($connection, $sql2)){
+        while($row = mysqli_fetch_assoc($result2)){
+          if($area_no==$row['area']){
+            $a_no=$row['area_no'];
+         }
+        }
+      } 
+    
 
 
-              
-              echo "<b>"."$_POST[year] "."</b>";
-              $monthNum  = $_POST['month'];
-              $dateObj   = DateTime::createFromFormat('!m', $monthNum);
-              $monthName = $dateObj->format('F');
-              echo "<b>".$monthName."</b>";
-              $sql2="SELECT dealer_id FROM dealer WHERE area_no=$a_no and active=1";
-              $query2=(mysqli_query($connection,$sql2));
-              while ($res2 = mysqli_fetch_assoc($query2)) {
-                $sql="SELECT dealer_id,SUM(IF(battery_type = 'exide', Amount, 0)) AS 'Exide',SUM(IF(battery_type = 'lucas', Amount, 0)) AS 'Lucas',SUM(IF(battery_type = 'deganite', Amount, 0)) AS 'Dagenite',SUM(Amount) AS Total FROM sold WHERE YEAR(sold_date) ='$_POST[year]' AND MONTH(sold_date) = '$_POST[month]' AND dealer_id = '$res2[dealer_id]' GROUP BY dealer_id";
-              $query=(mysqli_query($connection,$sql));
-              while($res = mysqli_fetch_assoc($query)){ 
-                        $sql3 = "SELECT dealer_name FROM dealer WHERE dealer_id = '$res[dealer_id]' ";
-                        $query3=(mysqli_query($connection,$sql3));
-                        while($res3 = mysqli_fetch_assoc($query3)){ 
-                          echo "<tr>";
-                          echo "<th>".$res3['dealer_name']."</th>";
-                      }
-                          echo "<th>".$res['Exide']."</th>";
-                          echo "<th>".$res['Lucas']."</th>";
-                          echo "<th>".$res['Dagenite']."</th>";
-                          
+                
+    echo "<b>"."$_POST[year] "."</b>";
 
-              }
+    /*converting month number to month name*/
+    $monthNum  = $_POST['month'];
+    $dateObj   = DateTime::createFromFormat('!m', $monthNum);
+    $monthName = $dateObj->format('F');
+    echo "<b>".$monthName."</b>";
+    
+    /*selecting relevant dealers*/
+    $sql2="SELECT dealer_id FROM dealer WHERE area_no=$a_no and active=1";
+    $query2=(mysqli_query($connection,$sql2));
+    while ($res2 = mysqli_fetch_assoc($query2)) {
+      $sql="SELECT dealer_id,SUM(IF(battery_type = 'exide', Amount, 0)) AS 'Exide',SUM(IF(battery_type = 'lucas', Amount, 0)) AS 'Lucas',SUM(IF(battery_type = 'deganite', Amount, 0)) AS 'Dagenite',SUM(Amount) AS Total FROM sold WHERE YEAR(sold_date) ='$_POST[year]' AND MONTH(sold_date) = '$_POST[month]' AND dealer_id = '$res2[dealer_id]' GROUP BY dealer_id";
+      $query=(mysqli_query($connection,$sql));
+      while($res = mysqli_fetch_assoc($query)){ 
+        $sql3 = "SELECT dealer_name FROM dealer WHERE dealer_id = '$res[dealer_id]' ";
+        $query3=(mysqli_query($connection,$sql3));
+        while($res3 = mysqli_fetch_assoc($query3)){ 
+          echo "<tr>";
+          echo "<th>".$res3['dealer_name']."</th>";
+        }
+        echo "<th>".$res['Exide']."</th>";
+        echo "<th>".$res['Lucas']."</th>";
+        echo "<th>".$res['Dagenite']."</th>";
+                            
 
-            }
-            echo "</table>";
-          }
+      }
 
-        $connection->close();
+    }
+    echo "</table>";
+  }
+
+     $connection->close();
 
 
 ?>

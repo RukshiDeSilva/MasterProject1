@@ -8,7 +8,7 @@ if ($role == "DEO") {
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/IM.css" type="text/css"/>
-	<script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+	<script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxarea_noVzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
 
 
 	<script>
@@ -86,33 +86,35 @@ if ($role == "DEO") {
 		<?php
 		require "database/connect.php";
 		//session_start();
-		$x1 = $_SESSION['sales_name'];
 
-		$pieces = explode(" ", $x1);
-		//echo $pieces[0]; // piece1
-		//echo $pieces[1]; // piece2
+		/*getting particular salesperson name from view.php to view deatails*/
+		$sales_name = $_SESSION['sales_name'];
+
+		/*spliting salesperson name to get f_name and l_name separately*/
+		$pieces = explode(" ", $sales_name);
+		
 
 		$error=FALSE;
-		$salesPerson_iderr = "";
-		$x0=$v0=$v1=$v2=$v3=$v4=$v5=$v6=$v7=$v8=$v9=$v10="";
+		
+		/*fetch data from salesperson table*/
 		$sql = "SELECT * FROM `sales_person` WHERE F_name = '$pieces[0]' AND L_name = '$pieces[1]'";
 
 		$result= mysqli_query($connection, $sql);
 
 		if(mysqli_num_rows($result) > 0){
 			while($row = mysqli_fetch_assoc($result)){
-				/*	echo "id: ".$row["dealer_id"]. "Name: ".$row["dealer_name"]. "NIC: ".$row["NIC"]."<br/>";*/
-				$x0=$row["salesPerson_id"];
-				$_SESSION['salesPerson_id']=$x0;
-				$v1=$row["F_name"];
-				$v2=$row["L_name"];
-				$v3=$row["area_no"];
-				$v4=$row["NIC"];
-				$v5=$row["address"];
+				
+				$salesperson_id=$row["salesPerson_id"];
+				$_SESSION['salesPerson_id']=$salesperson_id;
+				$f_name=$row["F_name"];
+				$l_name=$row["L_name"];
+				$area_no=$row["area_no"];
+				$nic=$row["NIC"];
+				$address=$row["address"];
 
-				$v7=$row["mobileNo"];
-				$v8=$row["telephoneNo"];
-				$v9=$row["email"];
+				$mobile_no=$row["mobileNo"];
+				$telephone_no=$row["telephoneNo"];
+				$email=$row["email"];
 			}
 		}else{
 			echo '<script>';
@@ -120,15 +122,16 @@ if ($role == "DEO") {
 			echo '</script>';
 		}
 
-		$sql1 = "SELECT * FROM area WHERE area_no = $v3";
+		/*selecting area for particular area no*/
+		$sql1 = "SELECT * FROM area WHERE area_no = $area_no";
 
 		$result1= mysqli_query($connection, $sql1);
 
 		if(mysqli_num_rows($result1) > 0){
 
 			while($row = mysqli_fetch_assoc($result1)){
-				/*  echo "id: ".$row["dealer_id"]. "Name: ".$row["dealer_name"]. "NIC: ".$row["NIC"]."<br/>";*/
-				$v10=$row["area"];
+				
+				$area=$row["area"];
 
 			}
 		}else{
@@ -142,56 +145,56 @@ if ($role == "DEO") {
 					<table id="ad">
 					<tr>
 						<td><b>Salesperson Id : </b></td>
-						<td><?php echo $x0;?><br/></td>
+						<td><?php echo $salesperson_id;?><br/></td>
 					</tr>
 					<tr>
 						<td>
 							<b>First Name :</b>
 						</td>
-						<td> <?php echo $v1;?><br/></td>
+						<td> <?php echo $f_name;?><br/></td>
 					</tr>
 					<tr>
 						<td>
 							<b>Last Name: </b>
 						</td>
-						<td> <?php echo $v2;?><br/></td>
+						<td> <?php echo $l_name;?><br/></td>
 					</tr>
 					<tr>
 						<td>
 							<b>Area: </b>
 						</td>
-						<td> <?php echo $v10;?><br/></td>
+						<td> <?php echo $area;?><br/></td>
 					</tr>
 					<tr>
 						<td>
 							<b>NIC : </b>
 						</td>
-						<td> <?php echo $v4;?><br/></td>
+						<td> <?php echo $nic;?><br/></td>
 					</tr>
 					<tr>
 						<td>
 							<b>Address : </b>
 						</td>
-						<td> <?php echo $v5;?><br/></td>
+						<td> <?php echo $address;?><br/></td>
 					</tr>
 
 					<tr>
 						<td>
 							<b>Mobile No : </b>
 						</td>
-						<td> <?php echo $v7;?><br/></td>
+						<td> <?php echo $mobile_no;?><br/></td>
 					</tr>
 					<tr>
 						<td>
 							<b>Telephone No : </b>
 						</td>
-						<td> <?php echo $v8;?><br/></td>
+						<td> <?php echo $telephone_no;?><br/></td>
 					</tr>
 					<tr>
 						<td>
 							<b>Email : </b>
 						</td>
-						<td> <?php echo $v9;?><br/></td>
+						<td> <?php echo $email;?><br/></td>
 					</tr>
 			</table>
 			</form>

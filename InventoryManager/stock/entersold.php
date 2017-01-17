@@ -92,7 +92,7 @@
     <script type="text/javascript">
         $( document ).ready(function() {
             $("select#cap").click( function(){
-                //var id = this.id;
+                
                 var id = $(this).children(":selected").attr("id");
                 console.log(id);
                 $.ajax({
@@ -103,8 +103,7 @@
                         $("tr#trow>td#second").html(data);
                         //load third
                         $("select#carmodel").click( function(){
-                            //var id = this.id;
-                            //alert("fdsf");
+                            
                             var id1 = $(this).children(":selected").attr("value");
                             // alert(id1);
                             console.log(id1);
@@ -159,46 +158,51 @@
     <div class="table">
         <?php
         require "../../database/connect.php";
-        //$salesname = $x = $y = "";
+        
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+
+            /*concatenation to form batch number*/
             $str =$_POST['batch_num1'].$_POST['batch_num2'].$_POST['batch_num3'].$_POST['batch_num4'];
-            //$salesname  = $_POST['salespersonname'];
-            //$sales = explode(" ", $salesname);
-            //$x = $sales[0];
-            //$y = $sales[1];
-            //    $sql = "INSERT INTO `sold` (`battery_type`, `battery_name`, `amount`, `salesPerson_id`, `dealer_id`, `sold_Date`) VALUES ('$_POST[batterytype]','$_POST[batteryname]',$_POST[amount],'$_POST[salespersonname]','$_POST[dealername]')";
+            
+            /*checking stock*/
             $sql1="SELECT current_stock FROM stock_in_hand WHERE battery_type='$_POST[battery_type]' AND battery_name= '$_POST[battery_name]'";
             $result1=mysqli_query($connection,$sql1);
             $row1=mysqli_fetch_row($result1);
             //echo $row1[0];
-            if($row1[0]< 0){
+            if($row1[0]< 25){
                 echo "<script>alert('Not enough stock');
-                     window.location.href='http://localhost/MasterProject/InventoryManager/stock/entersold.php';</script>";
+                     window.location.href='http://localhost/MasterProject1/InventoryManager/stock/entersold.php';</script>";
             }
 
             else{
+
+                /*insert the amount selling to sold table*/
                 $sql = "INSERT INTO `sold` (`battery_type`, `battery_name`, `amount`, `salesPerson_id`, `dealer_id`, `sold_Date`) VALUES ('$_POST[battery_type]', '$_POST[battery_name]', '$_POST[amount]', '$_POST[salesPerson_id]','$_POST[dealer_id]', now())";
                 if(mysqli_query($connection,$sql)){
                    echo "<script>alert('Successfully Sent Stock!');
-                     window.location.href='http://localhost/MasterProject/InventoryManager/stock/entersold.php';</script>";
+                     window.location.href='http://localhost/MasterProject1/InventoryManager/stock/entersold.php';</script>";
                 }
                 else{
                     echo "error";
                 }
+
+                /*reduce the amount from stock_in_hand table after selling*/
                 $query="UPDATE stock_in_hand SET current_stock=current_stock -'$_POST[amount]' WHERE battery_type='$_POST[battery_type]' AND battery_name= '$_POST[battery_name]'";
                 if (mysqli_query($connection, $query)) {
                     echo "";
                 }
                 else {
-                    echo "Error: " . $query . "<br>" . mysqli_error($connection);
+                    echo "error";
                 }
+
+                /*call the stored procedure*/
                 $query1= "call updateRelease('$str','$_POST[amount]','$_POST[salesPerson_id]','$_POST[dealer_id]')";
                 if (mysqli_query($connection, $query1)) {
                     echo "";
                 }
                 else {
-                    echo "Error: " . $query1 . "<br>" . mysqli_error($connection);
+                    echo "error";
                 }
             }
         }
@@ -236,11 +240,13 @@
                                     <td><b>Amount:</b></td>
                                     <td><input type="number" class="input-field"  name="amount" style="width: 70px" required></td>
                                 </tr>
-                                <!--<tr><td>Area:</td></tr>-->
+                                
+                                <!--id for ajax part for area dropdown-->
                                 <tr id= "trow">
                                     <td><b>Area:</b></td>
                                     <td>
                                         <?php
+                                        /*fetching areas for area dropdown from database*/
                                         echo '<select name="area" id="cap" class="select-field">';
                                         echo '<option>    ------SELECT------   </option>';
 
@@ -254,16 +260,21 @@
                                         ?>
                                     </td>
                                 </tr>
+
+                                <!--id for ajax part for salesperson dropdown-->
                                 <tr id="trow">
                                     <td><b>Salesperson Name:</b></td>
+                                    <!--id for ajax part-->
                                     <td id="second">
                                         <select name="salesPerson_id" class="select-field">
                                             <option> ------SELECT------</option>
                                         </select>
                                     </td>
                                 </tr>
+                                <!--id for ajax part dealer dropdown-->
                                 <tr id="trow">
                                     <td><b> Dealer Name:</b></td>
+                                    <!--id for ajax part-->
                                     <td id="second1">
                                         <select name="dealer_id" class="select-field">
                                             <option> ------SELECT------</option>

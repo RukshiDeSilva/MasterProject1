@@ -63,17 +63,16 @@ $role= $user_data['role'];
 		require "../../database/connect.php";
 		//session_start();
 		$error=FALSE;
-		$dealer_iderr = $v1 = "";
+		
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			if(empty($_POST['dealer_name'])){
-				$dealer_iderr = "";
-				$error = TRUE;
-			}else{
+			
+				
 				$dealer_name = $_POST['dealer_name'];
-				$v1 = $_POST['dealer_name'];
-				$_SESSION['dealer_name'] = $v1;
+
+				/*session for passing dealer name for view form*/
+				$_SESSION['dealer_name'] = $dealer_name;
 				header("Location: dealerSearch.php");
-			}
+			
 		}
 		?>
 		<div class="AddPro">
@@ -83,7 +82,7 @@ $role= $user_data['role'];
 				<form action="" method="POST">
 					<tr>
 						<td>
-							<b>Dealer Name:<span class="error">* <?php echo $dealer_iderr;?></span></b>
+							<b>Dealer Name:</b>
 						</td>
 					</tr>
 					<tr>

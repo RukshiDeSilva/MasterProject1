@@ -8,34 +8,7 @@ if ($role == "DEO") {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/IM.css" type="text/css"/>
-    <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
-
-
-    <script>
-
-        $( document ).ready(function() {
-            $("select#cap").click( function(){
-                //var id = this.id;
-                var id = $(this).children(":selected").attr("id");
-                console.log(id);
-
-                $.ajax({
-
-                    url:'getdrop2.php?data='+id,
-                    type:"get",
-                    success:function(data){
-
-                        $("tr#trow>td#second").html("");
-                        $("tr#trow>td#second").html(data);
-                    }
-
-
-                });
-            });
-
-        });
-
-    </script>
+    
 
 </head>
 <body>
@@ -84,58 +57,76 @@ if ($role == "DEO") {
             <a href="../salesperson/salesSearch.php."><img src="../img/Search.png"></a>
         </div>
         <?php
-        require "database/connect.php";
+        require "../../database/connect.php";
         //session_start();
-        $v = $_SESSION['salesPerson_id'];
-        //echo $v;
-
-        $sql = "SELECT * FROM sales_person WHERE salesPerson_id = '$v'";
-
-        $result= mysqli_query($connection, $sql);
-        if(mysqli_num_rows($result) > 0){
-            while($row = mysqli_fetch_assoc($result)){
-                /*	echo "id: ".$row["dealer_id"]. "Name: ".$row["dealer_name"]. "NIC: ".$row["NIC"]."<br/>";*/
-                $h0=$row["salesPerson_id"];
-                $h1=$row["F_name"];
-                $h2=$row["L_name"];
-                $h3=$row["area_no"];
-                $h4=$row["NIC"];
-                $h5=$row["address"];
-
-                $h7=$row["mobileNo"];
-                $h8=$row["telephoneNo"];
-                $h9=$row["email"];
-            }
-        }else{
-            echo "Zero results";
-        }
-        $sql1 = "SELECT * FROM area WHERE area_no = $h3";
-
-        $result1= mysqli_query($connection, $sql1);
-
-        if(mysqli_num_rows($result1) > 0){
-
-            while($row = mysqli_fetch_assoc($result1)){
-                /*  echo "id: ".$row["dealer_id"]. "Name: ".$row["dealer_name"]. "NIC: ".$row["NIC"]."<br/>";*/
-                $h10=$row["area"];
-            }
-        }else{
-            echo '<script>';
-            echo 'alert("area_result")';
-            echo '</script>';
-        }
-        $error=FALSE;
-        $F_nameerr = $L_nameerr =  $NICerr = $addresserr = $area_noerr = $mobileNoerr = $telephoneNoerr = $emailerr = $DOBerr = "";
+        
+        /*get the name search in salesSearch.php*/
+        $salesperson_id = $_SESSION['salesPerson_id'];
+        
+        
+        /*select data for particular salesperson searched*/
+        $sql = "SELECT * FROM sales_person WHERE salesPerson_id = '$salesperson_id'";
+                    
+                    $result= mysqli_query($connection, $sql);
+                    if(mysqli_num_rows($result) > 0){
+                        while($row = mysqli_fetch_assoc($result)){
+                        
+                        $salesperson_id=$row["salesPerson_id"];
+                        $f_name=$row["F_name"];
+                        $l_name=$row["L_name"];
+                        $area_no=$row["area_no"];
+                        $nic=$row["NIC"];
+                        $address=$row["address"];
+                        
+                        $mobile_no=$row["mobileNo"];
+                        $telephone_no=$row["telephoneNo"];
+                        $email=$row["email"];
+                        }
+                    }else{
+                        echo "Zero results";
+                    }
+                    
+                    /*relevant area for area no*/
+                    $sql1 = "SELECT * FROM area WHERE area_no = $area_no";
+                    
+                    $result1= mysqli_query($connection, $sql1);
+                    
+                    if(mysqli_num_rows($result1) > 0){
+                        
+                        while($row = mysqli_fetch_assoc($result1)){
+                        
+                            $area=$row["area"];
+                            
+                        }
+                    }else{
+                         echo '<script>';
+                         echo 'alert("area_result")';
+                         echo '</script>';
+                        }
+                    
+                     $error=FALSE;
+        
+        
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            //$sql="UPDATE 'dealer' SET dealer_name='$_POST[dealer_name]', NIC='$_POST[NIC]', address='$_POST[address]', salesPerson_id='$_POST[salesPerson_id]', mobileNo='$_POST[mobileNo]', telephoneNo='$_POST[telephoneNo]', email='$_POST[email]', fax='$_POST[fax]' WHERE dealer_id='$v'";
-            $sql = "UPDATE `sales_person` SET `F_name`='$_POST[F_name]',`L_name`='$_POST[L_name]',`NIC`='$_POST[NIC]',`address`='$_POST[address]',`mobileNo`='$_POST[mobileNo]',`telephoneNo`='$_POST[telephoneNo]',`email`='$_POST[email]' WHERE `salesPerson_id`='$v'";
+            
+            /*update salesperson*/
+            $sql = "UPDATE `sales_person` SET `F_name`='$_POST[F_name]',`L_name`='$_POST[L_name]',`NIC`='$_POST[NIC]',`address`='$_POST[address]',`mobileNo`='$_POST[mobileNo]',`telephoneNo`='$_POST[telephoneNo]',`email`='$_POST[email]' WHERE `salesPerson_id`='$salesperson_id'";
             if(mysqli_query($connection,$sql)){
                 //die();
-                header("Location: salesSearch.php");
-            } else{echo "error";}
+                echo "<script>alert('Successfully Updated');
+                         window.location.href='http://localhost/MasterProject1/InventoryManager/salesperson/salesSearch.php';</script>";
+                
+            } else{
+                echo "error";
+            }
+            
+            
+             
         }
-        ?>
-                <form class="AddPro" action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+        
+
+    ?>
+                <form class="AddPro" action="" method="post">
                     <h1 class="add">Update Salesperson</h1>
                     <table>
                     <tr>
@@ -147,40 +138,42 @@ if ($role == "DEO") {
                         <td><b>Area:</b></td>
                     </tr>
                     <tr>
-                        <td width="400px"><input type="text" name="F_name" style="width: 300px" value="<?php echo $h1; ?> " ></td>
-                        <td><?php echo $h10;?></td>
+                        <td width="400px"><input type="text" name="F_name" style="width: 300px" value="<?php echo $f_name; ?> " ></td>
+                        <td><?php echo $area;?></td>
                     </tr>
                     <tr>
                         <td><b>Last Name:</b></td>
                         <td><b>Mobile No:</b></td>
                     </tr>
                     <tr>
-                        <td><input type="text" name="L_name" style="width: 300px" value="<?php echo $h2; ?>" ></td>
-                        <td><input type="text" name="mobileNo" style="width: 300px" value="<?php echo $h7; ?>" ></td>
+                        <td><input type="text" name="L_name" style="width: 300px" value="<?php echo $l_name; ?>" ></td>
+                        <td><input type="text" name="mobileNo" style="width: 300px" value="<?php echo $mobile_no; ?>" ></td>
                     </tr>
                     <tr>
                         <td><b>Address:</b></td>
                         <td><b>Telephone No:</b></td>
                     </tr>
                     <tr>
-                        <td><input type="text" name="address" style="width: 200px" value="<?php echo $h5; ?>" ></td>
-                        <td><input type="text" name="telephoneNo" style="width: 200px" value="<?php echo $h8; ?>" ></td>
+                        <td><input type="text" name="address" style="width: 200px" value="<?php echo $address; ?>" ></td>
+                        <td><input type="text" name="telephoneNo" style="width: 200px" value="<?php echo $telephone_no; ?>" ></td>
                     </tr>
                     <tr>
                         <td><b>NIC:</b></td>
                         <td><b>Email:</b></td>
                     </tr>
                     <tr>
-                        <td><input type="text" name="NIC" style="width: 200px" value="<?php echo $h4; ?>" ></td>
-                        <td><input type="text" name="email" style="width: 200px" value="<?php echo $h9; ?>" ></td>
+                        <td><input type="text" name="NIC" style="width: 200px" value="<?php echo $nic; ?>" ></td>
+                        <td><input type="text" name="email" style="width: 200px" value="<?php echo $email; ?>" ></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button class="save" type="submit">Save</button>
+                        </td>
                     </tr>
                         </table>
                 </form>
-        <div class="tbl">
-            <a class="link" href="salesUpdate.php?">
-                <button class="save" type="submit">Save</button>
-            </a>
-        </div>
+        
 </div>
 </body>
 <?php

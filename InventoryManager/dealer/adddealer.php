@@ -80,6 +80,8 @@ $role= $user_data['role'];
         }
         return( true );
     }
+
+    /*ajax part for dropdown*/
     $( document ).ready(function() {
         $("select#cap").click( function(){
             //var id = this.id;
@@ -144,12 +146,10 @@ $role= $user_data['role'];
         <?php
         require "../../database/connect.php";
         $error=FALSE;
-        $dealer_nameerr = $area_noerr =  $NICerr = $addresserr = $salesPerson_iderr = $mobileNoerr = $telephoneNoerr = $emailerr = $faxerr = $dog =  "";
+        
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if(empty($_POST['area'])){
-                $area_noerr = "";
-                $error = TRUE;
-            }else{
+          
+                /*fetching areas for area dropdown*/
                 $area_no = $_POST['area'];
                 //echo $area_no;
                 $sql2 = "Select DISTINCT area_no,area from area = $area_no";
@@ -161,74 +161,27 @@ $role= $user_data['role'];
                         }
                     }
                 }
-            }
-            if(empty($_POST['NIC'])){
-                $NICerr = "";
-                $error = TRUE;
-            }else{
-                $NIC = $_POST['NIC'];
+            
+            
                 
-            }
-            if(empty($_POST['address'])){
-                $addresserr = "";
-                $error = TRUE;
-            }else{
-                $address = $_POST['address'];
-                
-            }
-            if(empty($_POST['salesPerson_id'])){
-                $salesPerson_iderr = "";
-                $error = TRUE;
-            }else{
-                $salesPerson_id = $_POST['salesPerson_id'];
-                
-            }
-            /*
-             if(empty($_POST['mobileNo'])){
-                 $mobileNoerr = "";
-                 $error = TRUE;
-             }else{
-                 $mobileNo = $_POST['mobileNo'];
-                 echo $mobileNo;
-             }
-
-             if(empty($_POST['telephoneNo'])){
-                 $telephoneNoerr = "rq";
-                 $error = TRUE;
-             }else{
-                 $telephoneNo = $_POST['telephoneNo'];
-                 echo $telephoneNo;
-             }
-             */
-            if(empty($_POST['email'])){
-                $emailerr = "rq";
-                $error = TRUE;
-            }else{
-                $email = $_POST['email'];
-                
-                if (strpos($email, '@') == FALSE) {
-                    $emailerr =  "Invalid email address";
-                    $error = TRUE;
-                }
-            }
-            if(empty($_POST['fax'])){
-                $faxerr = "rq";
-                $error = TRUE;
-            }else{
-                $fax = $_POST['fax'];
-                
-            }
             if ($error==FALSE){
+
+                /*add dealer*/
                 $sql="INSERT INTO `warranty_management`.`dealer` (`dealer_name`, `area_no`, `salesPerson_id`, `NIC`, `address`, `mobileNo`, `telephoneNo`, `email`, `fax`,`active`) VALUES ('$_POST[dealer_name]', $a_no , '$_POST[salesPerson_id]', '$_POST[NIC]', '$_POST[address]', '$_POST[mobileNo]', '$_POST[telephoneNo]', '$_POST[email]', '$_POST[fax]',1)";
                 if(mysqli_query($connection,$sql)){
                     echo "<script>alert('Successfully Inserted');</script>";
-                    //die();
-                    /*header("Location: adddealer.php");*/
-                } else{echo "error";}
+                    
+                    //header("Location: adddealer.php");
+                } 
+                else{
+                    echo "error";
+                }
             }
         }
         ?>
-            <form class="AddPro" action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" id="hello" name= "myForm" onsubmit="return(validate());">
+
+            <!--form for add dealer-->
+            <form class="AddPro" action="" method="post" id="hello" name= "myForm" onsubmit="return(validate());">
                     <h1  class="add">Add Dealer</h1>
                     <table id="tbl_add">
                         <tr>
@@ -236,7 +189,7 @@ $role= $user_data['role'];
                                 <b>Dealer Name:</b>
                             </td>
                             <td>
-                                <b>Mobile No:<span class="error">* <?php echo $mobileNoerr;?></span></b>
+                                <b>Mobile No:</b>
                             </td>
                         </tr>
                         <tr>
@@ -244,12 +197,12 @@ $role= $user_data['role'];
                                 <input type="text" name="dealer_name" style="width: 300px" required>
                             </td>
                             <td>
-                                <input type="text" name="mobileNo" style="width: 200px"  required >
+                                <input type="text" name="mobileNo" style="width: 200px" >
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2"><b>Dealer Address: <span class="error">* <?php echo $addresserr;?></span></b></td>
-                            <td><b>Telephone No: <span class="error">* <?php echo $telephoneNoerr;?></span></b></td>
+                            <td colspan="2"><b>Dealer Address: </b></td>
+                            <td><b>Telephone No: </b></td>
 
                         </tr>
                         <tr>
@@ -257,15 +210,15 @@ $role= $user_data['role'];
                                 <input type="text" name="address" style="width: 300px" required>
                             </td>
                             <td>
-                                <input type="text" name="telephoneNo" style="width: 200px" required>
+                                <input type="text" name="telephoneNo" style="width: 200px" >
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <b>NIC:<span class="error">* <?php echo $NICerr;?></span></b>
+                                <b>NIC:</b>
                             </td>
                             <td>
-                                <b>Fax No: <span class="error">* <?php echo $faxerr;?></span></b>
+                                <b>Fax No: </b>
                             </td>
                         </tr>
                         <tr>
@@ -273,24 +226,26 @@ $role= $user_data['role'];
                                 <input type="text" name="NIC" style="width: 200px" required>
                             </td>
                             <td>
-                                <input type="text" name="fax" style="width: 200px" required>
+                                <input type="text" name="fax" style="width: 200px" >
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <b>Area: <span class="error">* <?php echo $area_noerr;?></span></b>
+                                <b>Area: </b>
                             </td>
                             <td>
-                                <b>Salesperson Name: <span class="error">* <?php echo $area_noerr;?></span></b>
+                                <b>Salesperson Name: </b>
                             </td>
                             <td>
-                                <b>E mail: <span class="error">* <?php echo $emailerr;?></span></b>
+                                <b>E mail: </b>
                             </td>
                         </tr>
+
+                        <!--id for ajax part for area dropdown--> 
                         <tr id= "trow">
                             <td>
                                 <?php
-                                echo '<select name="area" id="cap">';
+                                echo '<select name="area" id="cap" required>';
                                 echo '<option>     -------ALL--------   </option>';
                                 $sql1 = "Select DISTINCT area_no,area from area";
                                 $result1= mysqli_query($connection, $sql1);
@@ -302,13 +257,15 @@ $role= $user_data['role'];
                                 echo "</select>";
                                 ?>
                             </td>
+
+                            <!--id for ajax part for salesperson dropdown-->
                             <td id="second">
                                 <select name="salesPerson_id">
                                     <option> -------ALL--------</option>
                                 </select>
                             </td>
                             <td>
-                                <input type="text" name="email" style="width: 200px" required >
+                                <input type="text" name="email" style="width: 200px"  >
                             </td>
                         </tr>
                         <tr>

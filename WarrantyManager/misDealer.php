@@ -48,13 +48,13 @@
     include '../InventoryManager/include/header.php';
     ?>
 <body>
-<?php   
-    if(isset($_POST['Enter']))
-{ 
-require "../core/database/connect.php";
 
- mysqli_query($conn,"UPDATE dealer SET active = 0 WHERE dealer_id = '$_POST[Enter]'");
-}
+
+<?php 
+/*inactive dealer*/  
+    if(isset($_POST['Enter'])){ 
+        mysqli_query($connection,"UPDATE dealer SET active = 0 WHERE dealer_id = '$_POST[Enter]'");
+    }
 ?>
 <div id="body">
     <div id="navigation"></div>
@@ -167,100 +167,78 @@ require "../core/database/connect.php";
        
                      <h1><b> Misused Dealers</b></h1>
 
-                    <table width="70%">
-  <tr>
-    <!--<th>Area</th>-->
-    <th></th>
-    <th></th>
-    
-    
-    
-  
-  </tr>
-  <tr></tr>
-  <tr>
-   
-    </tr>
-  
-
- 
-
-</table>
-<div  class="tbl-header">
-<table cellpadding="0" cellspacing="0" border="0">
-  <thead>
-    <tr>
-      <th>Dealer Name</th>
-      <th>No of Invalid Replacements</th>
-	  <th>Set Dealer Inactive</th>
-
-      
-      
-    </tr>
-  </thead>
-</table>
-</div>
-<div  class="tbl-content">
-<table cellpadding="0" cellspacing="0" border="0">
-  <tbody>
-    <?php 
-
-    
+                    <table width="70%"></table>
+                    <div  class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                      <thead>
+                        <tr>
+                          <th>Dealer Name</th>
+                          <th>No of Invalid Replacements</th>
+                    	  <th>Set Dealer Inactive</th>
+                        </tr>
+                      </thead>
+                    </table>
+                    </div>
 
 
-    
-      $sql2="SELECT dealer_id FROM dealer WHERE active=1";
-      $query2=(mysqli_query($connection,$sql2));
-      while ($res2 = mysqli_fetch_assoc($query2)){
-      $sql="SELECT battery_num,dealer_id,coalesce(count(case when battery_status =3  then 1 end), 0) as count FROM released_batteries WHERE dealer_id IS NOT NULL AND dealer_id = ANY (SELECT dealer_id FROM released_batteries WHERE battery_status=3)  AND dealer_id = '$res2[dealer_id]' GROUP BY dealer_id";
-      $query=(mysqli_query($connection,$sql));
-      while($res = mysqli_fetch_assoc($query)){ 
-            $sql5 = "SELECT dealer_name FROM dealer WHERE dealer_id = '$res[dealer_id]'";
-            $query5=(mysqli_query($connection,$sql5));
-            while($res5 = mysqli_fetch_assoc($query5)){ 
-            echo "<tr>";
-            echo "<th>".$res5['dealer_name']."</th>";
-                    }
-            echo "<th>".$res['count']."</th>";
+                    <div  class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                      <tbody>
+                        <?php 
 
-            echo"
-     <form  method='POST' >";
-    ?>
-    <td><button class="inactive_btn" type="submit" name="Enter" value="<?php echo "$res[dealer_id]"?>" onclick="return confirm('Are you sure you wish to inactive this dealer?');">Inactive</button></td>
-    
-    <?php   
-  
-    echo'</form>'; 
-            
+                          /*show dealers with invalid replacements*/
 
-         }
-     
-}
-?>
+                          $sql="SELECT dealer_id FROM dealer WHERE active=1";
+                          $query=(mysqli_query($connection,$sql));
+                          while ($res = mysqli_fetch_assoc($query)){
+                            $sql2="SELECT battery_num,dealer_id,coalesce(count(case when battery_status =3  then 1 end), 0) as count FROM released_batteries WHERE dealer_id IS NOT NULL AND dealer_id = ANY (SELECT dealer_id FROM released_batteries WHERE battery_status=3)  AND dealer_id = '$res[dealer_id]' GROUP BY dealer_id";
+                            $query2=(mysqli_query($connection,$sql2));
+                            while($res2 = mysqli_fetch_assoc($query2)){ 
+                                $sql3 = "SELECT dealer_name FROM dealer WHERE dealer_id = '$res2[dealer_id]'";
+                                $query3=(mysqli_query($connection,$sql3));
+                                while($res3 = mysqli_fetch_assoc($query3)){ 
+                                    echo "<tr>";
+                                    echo "<th>".$res3['dealer_name']."</th>";
+                                }
+                                echo "<th>".$res2['count']."</th>";
 
-    
-   
-    
- </tbody>
-</table>
-</div>
+                                echo"<form  method='POST' >";
+                        ?>
+                        <td><button class="inactive_btn" type="submit" name="Enter" value="<?php echo "$res2[dealer_id]"?>" onclick="return confirm('Are you sure you wish to inactive this dealer?');">Inactive</button></td>
+                        
+                        <?php   
+                      
+                        echo'</form>'; 
+                                
 
-</div>
+                            }
+                         
+                        }
+                    ?>
+
+                        
+                       
+                        
+                     </tbody>
+                    </table>
+                    </div>
+
+        </div>
 
 
 
                    
-</form>
+        </form>
 
 
  
 
-</div>
-</div>
-        </div>
+    </div>
+    </div>
+    </div>
 
 </body>
-    </html>
+</html>
 
  
        
@@ -269,12 +247,7 @@ require "../core/database/connect.php";
                         
                             
 
-</div>
-</div>
 
-
-</body>
-</html>
 
 
 

@@ -81,48 +81,52 @@ input[type=submit] {
      <b>Area:<b>
         <?php 
                                                       
-        echo '<select name="area" id="cap" style="font-color:black;">';
-        echo '<option>     -------ALL--------   </option>';
-                                                      
-        $sql1 = "Select DISTINCT area_no,area from area";
-        $query1= mysqli_query($conn, $sql1);
-        while($r=mysqli_fetch_row($query1)){ 
-        echo '<option id=' .$r[0].'> ' . $r[1] . '</option>';
+            /*dropdown for selecting area*/
+            echo '<select name="area" id="cap" style="font-color:black;">';
+            echo '<option>     -------ALL--------   </option>';
+                                                          
+            $sql1 = "Select DISTINCT area_no,area from area";
+            $query1= mysqli_query($conn, $sql1);
+            while($r=mysqli_fetch_row($query1)){ 
+                echo '<option id=' .$r[0].'> ' . $r[1] . '</option>';
 
-}
-                                                 
-        echo "</select>";
-        echo" ";
-        echo"Year:";
-        echo '<select name="year">';
-                                                        
-        $year = date("Y") - 3; 
-        for ($i = 0; $i <= 3; $i++) {
-        echo "<option>$year</option>"; 
-        $year++;
-    }
-                                                        
-        echo '</select>';
-        echo" ";
-        echo"Month:";
-        echo '<select name="month">';
+            }
+                                                     
+            /*dropdown for selecting year*/
+            echo "</select>";
+            echo" ";
+            echo"Year:";
+            echo '<select name="year">';
+                                                            
+            /*show three years back from the current year*/
+            $year = date("Y") - 3; 
+            for ($i = 0; $i <= 3; $i++) {
+                echo "<option>$year</option>"; 
+                $year++;
+            }
+                                                            
+            /*dropdown for selecting month*/
+            echo '</select>';
+            echo" ";
+            echo"Month:";
+            echo '<select name="month">';
 
-        echo '<option value="1">January</option>';
-        echo '<option value="2">February</option>';
-        echo '<option value="3">March</option>';
-        echo '<option value="4">April</option>';
-        echo '<option value="5">May</option>';
-        echo '<option value="6">June</option>';
-        echo '<option value="7">July</option>';
-        echo '<option value="8">August</option>';
-        echo '<option value="9">September</option>';
-        echo '<option value="10">October</option>';
-        echo '<option value="11">November</option>';
-        echo '<option value="12">December</option>';
+            echo '<option value="1">January</option>';
+            echo '<option value="2">February</option>';
+            echo '<option value="3">March</option>';
+            echo '<option value="4">April</option>';
+            echo '<option value="5">May</option>';
+            echo '<option value="6">June</option>';
+            echo '<option value="7">July</option>';
+            echo '<option value="8">August</option>';
+            echo '<option value="9">September</option>';
+            echo '<option value="10">October</option>';
+            echo '<option value="11">November</option>';
+            echo '<option value="12">December</option>';
 
-        echo '</select>';
+            echo '</select>';
 
-            ?>
+        ?>
                                                         
                                                      
 

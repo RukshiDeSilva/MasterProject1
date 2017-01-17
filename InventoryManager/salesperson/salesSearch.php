@@ -64,18 +64,15 @@ $role= $user_data['role'];
 			
 			$error=FALSE;
 			
-			$nameerr = $v1 = "";
+			
 
 			if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				if(empty($_POST['sales_name'])){ 
-	                $nameerr = "required";
-	                $error = TRUE;
-				}else{
+				
+					/*session for passing salesperson name for view form*/
 					$sales_name = $_POST['sales_name'];
-					$v1 = $_POST['sales_name'];
-					$_SESSION['sales_name'] = $v1;
+					$_SESSION['sales_name'] = $sales_name;
 					header("Location: sales.php");
-					}
+					
 				}
 		?>
 
@@ -83,7 +80,7 @@ $role= $user_data['role'];
 					<h1 class="add">Search Salesperson</h1>
 					<table id="ad">
 					<tr>
-						<td><b>Salesperson Name:<span class="error">* <?php echo $nameerr;?></span></b></td>
+						<td><b>Salesperson Name:</b></td>
 					</tr>
 					<tr>
 						<td colspan="2" style="width: 500px">

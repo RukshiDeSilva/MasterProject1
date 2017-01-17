@@ -5,6 +5,8 @@ require '../../database/connect.php';
 
 	if (isset($_GET['data'])) {
 
+
+		/*data is area no which was selected in the area dropdown*/
 		$id = $_GET['data'];
 		$sql = "SELECT * FROM sales_person WHERE area_no = $id AND active=1";
 

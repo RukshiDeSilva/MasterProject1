@@ -10,23 +10,24 @@ if ($role == "DEO") {
     <link rel="stylesheet" href="css/IM.css" type="text/css"/>
     <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
     <script>
-$( document ).ready(function() {
-     $("select#cap").click( function(){
-            //var id = this.id;
-            var id = $(this).children(":selected").attr("id");
-            console.log(id);
-            $.ajax({
-                url:'getdrop2.php?data='+id,
-                type:"get",
-                success:function(data){
+    /*ajax part for dropdown*/
+    $( document ).ready(function() {
+         $("select#cap").click( function(){
+                //var id = this.id;
+                var id = $(this).children(":selected").attr("id");
+                console.log(id);
+                $.ajax({
+                    url:'getdrop2.php?data='+id,
+                    type:"get",
+                    success:function(data){
 
-                   $("tr#trow>td#second").html("");
-                $("tr#trow>td#second").html(data);
-                }
-            });
+                       $("tr#trow>td#second").html("");
+                    $("tr#trow>td#second").html(data);
+                    }
+                });
+        });
     });
-});
-</script>
+    </script>
 </head>
 <body>
 <div class="row">
@@ -77,12 +78,10 @@ $( document ).ready(function() {
         require "../../database/connect.php";
         //session_start();
         $error=FALSE;
-        $F_nameerr = $L_nameerr =  $NICerr = $addresserr = $area_noerr = $mobileNoerr = $telephoneNoerr = $emailerr = $DOBerr = "";
+        
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if(empty($_POST['area'])){
-                $area_noerr = "";
-                $error = TRUE;
-            }else{
+                
+                /*fetching areas for area dropdown*/
                 $area_no = $_POST['area'];
                 $dealer_id = $_POST['dealer_id'];
                 $_SESSION['dealer_id'] = $dealer_id;
@@ -95,33 +94,35 @@ $( document ).ready(function() {
                         }
                     }
                 }
-            }
+            
             if ($error==FALSE){
-                /*$sql="INSERT INTO `sales_person` (`F_name`, `area_no`, `NIC`, `address`, `L_name`, `mobileNo`, `telephoneNo`, `email`,) VALUES ('$_POST[F_name]',$a_no,'$_POST[NIC]','$_POST[address]','$_POST[L_name]','$_POST[mobileNo]','$_POST[telephoneNo]','$_POST[email]')";
-
-                /*$sql2="UPDATE `dealer` SET `salesPerson_id`= 'me add wena salespersonge id eka.mm danne na eka puluwan weida kyla' WHERE `dealer_id` =drop down eken select karapu dealerge id eka";*/
-                $sql="INSERT INTO `sales_person` (`F_name`, `area_no`, `NIC`, `address`, `L_name`, `mobileNo`, `telephoneNo`, `email`) VALUES ('".$_POST['F_name']."','".$a_no."','".$_POST['NIC']."','".$_POST['address']."','".$_POST['L_name']."','".$_POST['mobileNo']."','".$_POST['telephoneNo']."','".$_POST['email']."')";
+               
+                /*add salesperson*/
+                $sql="INSERT INTO `sales_person` (`F_name`, `area_no`, `NIC`, `address`, `L_name`, `mobileNo`, `telephoneNo`, `email`,`active`) VALUES ('".$_POST['F_name']."','".$a_no."','".$_POST['NIC']."','".$_POST['address']."','".$_POST['L_name']."','".$_POST['mobileNo']."','".$_POST['telephoneNo']."','".$_POST['email']."',1)";
                 if(mysqli_query($connection,$sql)){
-                    header("Location: salesAdd.php");
+                     echo "<script>alert('Successfully inserted');
+                     window.location.href='http://localhost/MasterProject1/InventoryManager/salesperson/salesAdd.php';</script>";
                     //die();
                 } else{echo "error";}
             }
         }
         ?>
-        <form class="AddPro" action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
+
+        <!--form to add salesperson-->
+        <form class="AddPro" action="" method="POST">
                 <h1 class="add">Add Salesperson</h1>
                 <table id="ad">
                         <tr>
-                            <td><b>First Name: <span class="error">* <?php echo $F_nameerr;?></span></b></td>
-                            <td><b>Last Name: <span class="error">* <?php echo $L_nameerr;?></span></b></td>
+                            <td><b>First Name: </b></td>
+                            <td><b>Last Name: </b></td>
                         </tr>
                         <tr>
                             <td><input type="text" name="F_name" style="width: 200px" ></td>
                             <td><input type="text" name="L_name" style="width: 200px" ></td>
                         </tr>
                         <tr>
-                            <td><b>NIC: <span class="error">* <?php echo $NICerr;?></span></b></td>
-                            <td><b>Address: <span class="error">* <?php echo $addresserr;?></span></b></td>
+                            <td><b>NIC: </b></td>
+                            <td><b>Address: </b></td>
                         </tr>
                         <tr>
                             <td><input type="text" name="NIC" style="width: 200px" ></td>
@@ -145,6 +146,8 @@ $( document ).ready(function() {
                             <td><b>Area: </b></td>
                             <td><b>Dealer Name:<b></td>
                         </tr>
+
+                        <!--id for ajax part for area dropdown--> 
                         <tr id= "trow">
                             <td>
                                 <?php
@@ -161,6 +164,8 @@ $( document ).ready(function() {
                                 echo "</select>";
                                 ?>
                             </td>
+
+                            <!--id for ajax part for dealer dropdown-->
                             <td id="second">
                                 <select name="dealer_id">
                                     <option> -------ALL--------</option>
