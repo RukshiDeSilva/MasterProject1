@@ -22,28 +22,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="viewbattery.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/InventoryManager/battery/viewbattery.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="69" column="19" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
-              <folding>
-                <marker date="1484559415309" expanded="true" signature="2390:2518" ph="SELECT batte... battery_description" />
-                <marker date="1484559415309" expanded="true" signature="2645:3569" ph="..." />
-                <marker date="1484559415309" expanded="true" signature="2681:2816" ph="{...}" />
-                <marker date="1484559415309" expanded="true" signature="2881:3008" ph="{...}" />
-                <marker date="1484559415309" expanded="true" signature="3172:3307" ph="{...}" />
-                <marker date="1484559415309" expanded="true" signature="3342:3533" ph="{...}" />
-                <marker date="1484559415309" expanded="true" signature="3640:4092" ph="..." />
-                <marker date="1484559415309" expanded="true" signature="3676:4092" ph="..." />
-                <marker date="1484559415309" expanded="true" signature="3709:4092" ph="..." />
-                <marker date="1484559415309" expanded="true" signature="4235:4786" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stock.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="stock.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/InventoryManager/stock/stock.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="197">
@@ -69,14 +48,114 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="enterDefect.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WarrantyManager/enterDefect.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="93" column="15" selection-start-line="93" selection-start-column="15" selection-end-line="93" selection-end-column="15" />
+              <folding>
+                <marker date="1484635516570" expanded="true" signature="4838:5032" ph="SELECT batte... released_batteries" />
+                <marker date="1484635516570" expanded="true" signature="5139:5336" ph="..." />
+                <marker date="1484635516570" expanded="true" signature="5192:5327" ph="..." />
+                <marker date="1484635516570" expanded="true" signature="5204:5316" ph="..." />
+                <marker date="1484635516570" expanded="true" signature="5212:5303" ph="..." />
+                <marker date="1484635516570" expanded="true" signature="5365:5443" ph="..." />
+                <marker date="1484635516570" expanded="true" signature="5418:5443" ph="..." />
+                <marker date="1484635516570" expanded="true" signature="5430:5443" ph="..." />
+                <marker date="1484635516570" expanded="true" signature="5563:5627" ph="..." />
+                <marker date="1484635516570" expanded="true" signature="6042:6073" ph="SELECT defec... defect_types" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IM.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/InventoryManager/css/IM.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="503" column="19" selection-start-line="503" selection-start-column="19" selection-end-line="503" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/InventoryManager/admin/add.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="92" column="56" selection-start-line="92" selection-start-column="56" selection-end-line="92" selection-end-column="56" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#7;n#table#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1484663335193" expanded="true" signature="2626:2791" ph="INSERT INTO users... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/InventoryManager/Do/view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="727">
+              <caret line="101" column="8" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="delete.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/InventoryManager/admin/delete.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+              <folding>
+                <marker date="1484555815234" expanded="true" signature="105:149" ph="UPDATE users... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/InventoryManager/Do/add.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="268">
+              <caret line="90" column="60" selection-start-line="90" selection-start-column="60" selection-end-line="90" selection-end-column="60" />
+              <folding>
+                <marker date="1484663916144" expanded="true" signature="2445:2610" ph="INSERT INTO users... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="backup.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/InventoryManager/admin/backup.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="142" column="63" selection-start-line="142" selection-start-column="16" selection-end-line="142" selection-end-column="63" />
+              <folding>
+                <marker date="1484647307033" expanded="true" signature="3520:3546" ph="SELECT * FRO... ${$table}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="inventory.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/InventoryManager/inventory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="54" column="38" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="38" />
+            <state relative-caret-position="928">
+              <caret line="60" column="44" selection-start-line="9" selection-start-column="0" selection-end-line="60" selection-end-column="44" />
               <folding>
-                <marker date="1484555815480" expanded="true" signature="1743:1784" ph="select * fro... users" />
+                <marker date="1484643872794" expanded="true" signature="2196:2237" ph="select * fro... users" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/InventoryManager/admin/view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="498">
+              <caret line="110" column="6" selection-start-line="110" selection-start-column="6" selection-end-line="110" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,6 +170,15 @@
       <list>
         <option value="$PROJECT_DIR$/InventoryManager/battery/viewbattery.php" />
         <option value="$PROJECT_DIR$/InventoryManager/stock/stock.php" />
+        <option value="$PROJECT_DIR$/WarrantyManager/enterDefect.php" />
+        <option value="$PROJECT_DIR$/database/connect.php" />
+        <option value="$PROJECT_DIR$/InventoryManager/inventory.php" />
+        <option value="$PROJECT_DIR$/InventoryManager/admin/backup.php" />
+        <option value="$PROJECT_DIR$/InventoryManager/admin/add.php" />
+        <option value="$PROJECT_DIR$/InventoryManager/Do/add.php" />
+        <option value="$PROJECT_DIR$/InventoryManager/Do/view.php" />
+        <option value="$PROJECT_DIR$/InventoryManager/css/IM.css" />
+        <option value="$PROJECT_DIR$/InventoryManager/admin/view.php" />
       </list>
     </option>
   </component>
@@ -100,11 +188,15 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="1370" />
-    <option name="height" value="735" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -183,6 +275,42 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MasterProject1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MasterProject1" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="InventoryManager" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Do" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MasterProject1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MasterProject1" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="InventoryManager" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -193,8 +321,37 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+  </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -203,18 +360,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1484559256010</updated>
-      <workItem from="1484559257735" duration="770000" />
+      <workItem from="1484559257735" duration="13621000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="770000" />
+    <option name="totallyTimeSpent" value="13621000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17725259" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17569546" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -233,6 +390,14 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -241,16 +406,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/InventoryManager/inventory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="54" column="38" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="38" />
-          <folding>
-            <marker date="1484555815480" expanded="true" signature="1743:1784" ph="select * fro... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/InventoryManager/battery/viewbattery.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -291,6 +446,108 @@
             <marker date="1484559897218" expanded="true" signature="3460:3614" ph="..." />
             <marker date="1484559897218" expanded="true" signature="3473:3614" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/connect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/admin/delete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+          <folding>
+            <marker date="1484555815234" expanded="true" signature="105:149" ph="UPDATE users... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/admin/backup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="142" column="63" selection-start-line="142" selection-start-column="16" selection-end-line="142" selection-end-column="63" />
+          <folding>
+            <marker date="1484647307033" expanded="true" signature="3520:3546" ph="SELECT * FRO... ${$table}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/css/IM.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="503" column="19" selection-start-line="503" selection-start-column="19" selection-end-line="503" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WarrantyManager/enterDefect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="93" column="15" selection-start-line="93" selection-start-column="15" selection-end-line="93" selection-end-column="15" />
+          <folding>
+            <marker date="1484635516570" expanded="true" signature="4838:5032" ph="SELECT batte... released_batteries" />
+            <marker date="1484635516570" expanded="true" signature="5139:5336" ph="..." />
+            <marker date="1484635516570" expanded="true" signature="5192:5327" ph="..." />
+            <marker date="1484635516570" expanded="true" signature="5204:5316" ph="..." />
+            <marker date="1484635516570" expanded="true" signature="5212:5303" ph="..." />
+            <marker date="1484635516570" expanded="true" signature="5365:5443" ph="..." />
+            <marker date="1484635516570" expanded="true" signature="5418:5443" ph="..." />
+            <marker date="1484635516570" expanded="true" signature="5430:5443" ph="..." />
+            <marker date="1484635516570" expanded="true" signature="5563:5627" ph="..." />
+            <marker date="1484635516570" expanded="true" signature="6042:6073" ph="SELECT defec... defect_types" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/inventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="928">
+          <caret line="60" column="44" selection-start-line="9" selection-start-column="0" selection-end-line="60" selection-end-column="44" />
+          <folding>
+            <marker date="1484643872794" expanded="true" signature="2196:2237" ph="select * fro... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/Do/add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="90" column="60" selection-start-line="90" selection-start-column="60" selection-end-line="90" selection-end-column="60" />
+          <folding>
+            <marker date="1484663916144" expanded="true" signature="2445:2610" ph="INSERT INTO users... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/Do/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="727">
+          <caret line="101" column="8" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/admin/add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="92" column="56" selection-start-line="92" selection-start-column="56" selection-end-line="92" selection-end-column="56" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#7;n#table#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1484663335193" expanded="true" signature="2626:2791" ph="INSERT INTO users... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/admin/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="110" column="6" selection-start-line="110" selection-start-column="6" selection-end-line="110" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>

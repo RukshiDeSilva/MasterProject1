@@ -1,25 +1,18 @@
 <!DOCTYPE html>
-
-
  <?php include '../core/init.php';
-      protect_page(); 
-	
+      protect_page(); 	 
 ?>
-
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
 		<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css">
-   
-       
+		
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="js/jquery-editable-select.js"></script>
-
-
-
+		
 <script>
 
 	$(function(){
@@ -88,18 +81,15 @@
 					   $("tr#trow>th#second").html("");
 					$("tr#trow>th#second").html(data);
 					}
-
-
+					
 				});
 		});
 	});
 </script>
 </head>
-
 <?php
 include '../InventoryManager/include/header.php';
 ?>
-
 <body>
 	<div id="body">
 		<div id="navigation"></div>

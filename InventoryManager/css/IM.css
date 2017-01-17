@@ -166,7 +166,6 @@ span{
     color: white;
     font-size: 36px;
 }
-
 .topnav a:hover {
     background-color: #B40404;
 }
@@ -209,6 +208,7 @@ span{
     text-decoration: none;
     font-family: 'Open Sans', sans-serif;
     min-width: 120px;
+    text-align: center;
 }
 .update{
     color: #2196F3;
@@ -223,6 +223,7 @@ span{
     text-decoration: none;
     font-family: 'Open Sans', sans-serif;
     min-width: 120px;
+    text-align: center;
 }
 .delete,.reset{
     color: #B71C1C;
@@ -237,6 +238,7 @@ span{
     text-decoration: none;
     font-family: 'Open Sans', sans-serif;
     min-width: 120px;
+    text-align: center;
 }
 .delete:hover {
     color:#fff;
@@ -266,6 +268,7 @@ span{
     display: inline-block;
     text-decoration: none;
     font-family: 'Open Sans', sans-serif;
+    text-align: center;
     min-width: 120px;
 }
 .submit:hover {
@@ -348,24 +351,6 @@ span{
     color: #fff;
     font-size: 30px;
 }
-.enter{
-    float: right;
-    margin-right: 5%;
-    margin-top: 2%;
-    border-radius: 4px;
-    padding: 10 10 10 10;
-    color: #009688;
-    background: #fff;
-    border: 1px solid #009688;
-    font-size: 17px;
-    padding: 7px 12px;
-    font-weight: normal;
-    margin-right: 12px;
-    display: inline-block;
-    text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
-    min-width: 120px;
-}
 .index-logout {
     background-color: #B40404;
     border: none;
@@ -381,6 +366,7 @@ span{
     float: right;
     margin-right: 5%;
     margin-top: 2%;
+    text-align: center;
 }
 .index-logout1 {
     background-color: white;
@@ -477,6 +463,7 @@ span{
     text-decoration: none;
     font-family: 'Open Sans', sans-serif;
     min-width: 120px;
+    text-align: center;
 }
 .deo:hover{
     color:#fff;
@@ -495,6 +482,7 @@ span{
     text-decoration: none;
     font-family: 'Open Sans', sans-serif;
     min-width: 120px;
+    text-align: center;
 }
 .adm:hover{
     color:#fff;
@@ -511,4 +499,29 @@ span{
 .tbl{
     padding-left: 40%;
     margin-top: 2%
+}
+#admin{
+     padding-left:2%;
+     padding-bottom: 3%;
+ }
+#add-admin{
+    padding-left:2%;
+    padding-bottom: 3%;
+}
+#add-admin2{
+    padding-left:10%;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-top: -5%;
+}
+#admn{
+    padding-top: 0;
+    margin-top: -5%;
+}
+#add-adm{
+    margin-left: 15%;
+}
+#search-deo{
+    margin-left: 5%;
+    margin-top: 7%;
 }

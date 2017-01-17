@@ -77,24 +77,16 @@ $role= $user_data['role'];
 			}
 		}
 		?>
-		<div class="AddPro">
-		<div class="ad">
-
-
-
-               <a class="enter" style="float:left;text-align:center;" href="add.php">Add</a>
-               <a class="enter" style="float:left;text-align:center;" href="view.php">Search</a>
-                
-                <a class="enter" style="float:left;text-align:center;" href="../inventory.php">Back</a>
-
-
-
-                </br></br>
-</br></br>
-
+        <div class="AddPro">
+            <div id="add-admin2">
+                <a class="enter" href="add.php">Add</a>
+                <a class="search" href="view.php">Search</a>
+                <a class="reset" href="../inventory.php">Back</a>
+            </div>
+        <div id="search-deo">
 			<h1 class="add">Search Data Entry Operator</h1>
-			<table id="ad">
 				<form action="" method="POST">
+                    <table id="ad">
 					<tr>
 						<td>
 							<b>Data Entry Operator Name:<span class="error">* <?php echo $dealer_iderr;?></span></b>
@@ -105,13 +97,9 @@ $role= $user_data['role'];
 							<input type="text" name="dealer_name" size="30" maxlength="25" style="width: 300px" required>
 							<input class="search" type="submit" name="submit" value="Search">
 					</tr>
+                    </table>
 				</form>
-
-        
-
-         </form>
-        </table>
-    </div>
+        </div>
 </div>
     <?php
     include '../include/footer.php';

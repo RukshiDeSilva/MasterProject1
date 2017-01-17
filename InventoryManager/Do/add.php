@@ -6,8 +6,8 @@ protect_page();
 $role= $user_data['role'];
 ?>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/IM.css" type="text/css"/>
+
+    <link rel="stylesheet" href="../css/IM.css" type="text/css"/>
     <!-- bxSlider Javascript file -->
     <script src="../js/jquery.bxslider.js"></script>
     <!-- bxSlider CSS file -->
@@ -16,7 +16,6 @@ $role= $user_data['role'];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 </head>
-
 <body>
 <div class="row">
     
@@ -87,13 +86,11 @@ $role= $user_data['role'];
         }
         ?>
         <form class="AddPro" action="" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
-               <a href="add.php">Add</a>
-               <a href="view.php">Search</a>
-                
-                <a href="../inventory.php">Back</a>
-
-      
-                        </br> </br>
+            <div id="add-admin2">
+                <a class="enter" href="add.php">Add</a>
+                <a class="search" href="view.php">Search</a>
+                <a class="reset" href="../inventory.php">Back</a>
+            </div>
             <table id="ad">
                 <h1 class="add">Add Data Entry Operator</h1>
                     
@@ -125,14 +122,12 @@ $role= $user_data['role'];
                         <td id="data">Password:</td>
                         <td id="data"><input type="password" name="password" style="width: 200px" required></td>
                     </tr>
-                   
-                    <tr>
-                        <td></td><td></td><td></td><td></td><td></td><td></td>
-                        <td id="data"><button class="submit" name="submit" value="send">Submit</button></td>
-                        <td id="data"><button class="reset" type="reset">Reset</button></td>
-                    </tr>
+            </table>
         </form>
-        </table>
+        <div class="admin">
+            <button class="submit" name="submit" value="send">Submit</button>
+            <button class="reset" type="reset">Reset</button>
+        </div>
     </div>
 </div>
     <?php
