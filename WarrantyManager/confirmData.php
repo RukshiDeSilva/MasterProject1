@@ -120,7 +120,8 @@ function set_status($conn, $batchNum,$batteryNum, $check_replace){
 			// update an existing one
 			mysqli_query($conn,"UPDATE released_batteries SET battery_status = '4', dealer_id = '$_POST[dealer_id]' WHERE batch_num = '".$row['batch_num']." AND battery_num = '".$row['battery_num']."' ");
 			mysqli_query($conn,"UPDATE released_batteries SET battery_status = '5' WHERE battery_status = '3' AND batch_num = '$batchNum' AND battery_num = '$batteryNum' ");
-			
+		
+		//if replaced	
 			return 1;
 		}
 		
