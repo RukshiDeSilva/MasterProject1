@@ -191,7 +191,7 @@
                           $sql="SELECT dealer_id FROM dealer WHERE active=1";
                           $query=(mysqli_query($connection,$sql));
                           while ($res = mysqli_fetch_assoc($query)){
-                            $sql2="SELECT battery_num,dealer_id,coalesce(count(case when battery_status =3  then 1 end), 0) as count FROM released_batteries WHERE dealer_id IS NOT NULL AND dealer_id = ANY (SELECT dealer_id FROM released_batteries WHERE battery_status=3)  AND dealer_id = '$res[dealer_id]' GROUP BY dealer_id";
+                            $sql2="SELECT battery_num,dealer_id,coalesce(count(case when battery_status =6  then 1 end), 0) as count FROM released_batteries WHERE dealer_id IS NOT NULL AND dealer_id = ANY (SELECT dealer_id FROM released_batteries WHERE battery_status=6)  AND dealer_id = '$res[dealer_id]' GROUP BY dealer_id";
                             $query2=(mysqli_query($connection,$sql2));
                             while($res2 = mysqli_fetch_assoc($query2)){ 
                                 $sql3 = "SELECT dealer_name FROM dealer WHERE dealer_id = '$res2[dealer_id]'";
