@@ -8,7 +8,71 @@ if ($role == "DEO") {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/IM.css" type="text/css"/>
-    
+    <script>
+     function validate(){
+        
+        var a= document.myForm.f_name.value;
+        //  var a = document.form.name.value;
+        if(a=="")
+        {
+            alert("Please Enter Your Name");
+            document.form.name.focus();
+            return false;
+        }
+        if(!isNaN(a)) // check is it varchar
+        {
+            alert("Please Enter Only Characters for the  Name");
+            document.form.name.select();
+            return false;
+        }
+        var b= document.myForm.l_name.value;
+        //  var a = document.form.name.value;
+        if(b=="")
+        {
+            alert("Please Enter Your Name");
+            document.form.name.focus();
+            return false;
+        }
+        if(!isNaN(b))
+        {
+            alert("Please Enter Only Characters for the  Name");
+            document.form.name.select();
+            return false;
+        }
+        //Mobile no
+        if( document.myForm.mobileNo.value == "" ||
+            isNaN( document.myForm.mobileNo.value ) ||
+            document.myForm.mobileNo.value.length != 10 )
+        {
+            alert( "Please provide a Mobile No No as the format 0#########." );
+            document.myForm.telephoneNo.focus() ;
+            return false;
+        }
+        //TP nomber
+        
+        //Nic No
+        var idToTest = document.myForm.NIC.value,
+            myRegExp = new RegExp(/^[0-9]{9}[vVxX]$/);
+        if(myRegExp.test(idToTest)) {
+        }
+        else {
+            alert( "Please provide a NIC No as #########V" );
+        }
+        //Fax NO
+        
+        //Email Validation
+        var emailID = document.myForm.email.value;
+        atpos = emailID.indexOf("@");
+        dotpos = emailID.lastIndexOf(".");
+        if (atpos < 1 || ( dotpos - atpos < 2 ))
+        {
+            alert("Please enter correct email ID")
+            document.myForm.email.focus() ;
+            return false;
+        }
+        return( true );
+    }
+    </script>
 
 </head>
 <body>
