@@ -151,6 +151,7 @@ $role= $user_data['role'];
                 $telephone_no=$row["telephoneNo"];
                 $email=$row["email"];
                 $fax=$row["fax"];
+                $active=$row["active"];
             }
         }else{
             echo "Zero results";
@@ -201,7 +202,7 @@ $role= $user_data['role'];
                 if ($error==FALSE){
 
                 /*update dealer*/
-                $sql = "UPDATE `dealer` SET `dealer_name`='$_POST[dealer_name]',`area_no`=$area_no,`salesPerson_id`=$salesperson_id,`NIC`='$_POST[NIC]',`address`='$_POST[address]',`mobileNo`='$_POST[mobileNo]',`telephoneNo`='$_POST[telephoneNo]',`email`='$_POST[email]',`fax`='$_POST[fax]' WHERE `dealer_name`='$dealer_name'";
+                $sql = "UPDATE `dealer` SET `dealer_name`='$_POST[dealer_name]',`area_no`=$area_no,`salesPerson_id`=$salesperson_id,`NIC`='$_POST[NIC]',`address`='$_POST[address]',`mobileNo`='$_POST[mobileNo]',`telephoneNo`='$_POST[telephoneNo]',`email`='$_POST[email]',`fax`='$_POST[fax]',`active`='$_POST[active]' WHERE `dealer_name`='$dealer_name'";
                     if(mysqli_query($connection,$sql)){
                         echo "<script>alert('Successfully Updated');
                          window.location.href='http://localhost/MasterProject1/InventoryManager/dealer/view.php';</script>";
@@ -291,16 +292,20 @@ $role= $user_data['role'];
                         <td>
                             <input type="text" name="email" style="width: 200px" value="<?php echo $email; ?>">
                         </td>
+                        
                     </tr>
 
                     <tr>
                         <td>
                             <b>Relevant Salesperson Name:</b>
+                            <td><b>Active:</b></td>
                         </td>
                     </tr>
                     <tr>
                         <td ><?php echo $f_name ." ". $l_name; ?></td>
+                        <td><input type="text" name="active" style="width: 200px" value="<?php echo $active; ?>" ></td>
                     </tr>
+                    
                     <tr>
                         <td></td>
                         <td>
