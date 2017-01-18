@@ -184,30 +184,30 @@ if ($role == "DEO") {
                             <td><b>Last Name: </b></td>
                         </tr>
                         <tr>
-                            <td><input type="text" name="F_name" style="width: 200px" ></td>
-                            <td><input type="text" name="L_name" style="width: 200px" ></td>
+                            <td><input type="text" name="F_name" style="width: 200px" required></td>
+                            <td><input type="text" name="L_name" style="width: 200px" required></td>
                         </tr>
                         <tr>
                             <td><b>NIC: </b></td>
                             <td><b>Address: </b></td>
                         </tr>
                         <tr>
-                            <td><input type="text" name="NIC" style="width: 200px" ></td>
-                            <td><input type="text" name="address" style="width: 300px" ></td>
+                            <td><input type="text" name="NIC" style="width: 200px" required></td>
+                            <td><input type="text" name="address" style="width: 300px" required></td>
                         </tr>
                         <tr>
                             <td><b>Mobile No: </b></span></td>
                             <td><b>Telephone No: </span></b></td>
                         </tr>
                         <tr>
-                            <td><input type="text" name="mobileNo" style="width: 200px" ></td>
+                            <td><input type="text" name="mobileNo" style="width: 200px" required></td>
                             <td><input type="text" name="telephoneNo" style="width: 200px" ></td>
                         </tr>
                         <tr>
                             <td><b>Email: </b></td>
                         </tr>
                         <tr>
-                            <td><input type="text" name="email" style="width: 200px" ></td>
+                            <td><input type="text" name="email" style="width: 200px" required></td>
                         </tr>
                         <tr>
                             <td><b>Area: </b></td>
@@ -219,7 +219,7 @@ if ($role == "DEO") {
                             <td>
                                 <?php
 
-                                echo '<select name="area" id="cap">';
+                                echo '<select name="area" id="cap" >';
                                 echo '<option>     -------ALL--------   </option>';
 
                                 $sql1 = "Select DISTINCT area_no,area from area";
