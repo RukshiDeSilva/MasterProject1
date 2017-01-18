@@ -11,7 +11,7 @@ if ($role == "DEO") {
     <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
     <script>
 
-<script>
+
     function validate(){
         
         var a= document.myForm.f_name.value;
